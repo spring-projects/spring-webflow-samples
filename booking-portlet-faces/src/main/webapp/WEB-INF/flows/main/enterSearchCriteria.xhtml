@@ -1,0 +1,77 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view contentType="text/html">
+
+	<div id="hotelSearch">
+		<h2>Search Hotels</h2>
+	    <span class="errors">
+	       <h:messages globalOnly="true" />
+	    </span>
+		<h:form id="mainForm">
+			<fieldset>
+				<div class="searchGroup">
+					<div class="searchField">
+					   	<h:outputLabel for="searchString">Search String:</h:outputLabel>
+						<h:inputText id="searchString" value="#{searchCriteria.searchString}" style="width: 165px; height: 15px;" />
+					</div>
+					<div class="searchSize">
+					   	<h:outputLabel for="pageSize">Maximum results:</h:outputLabel>
+						<h:selectOneMenu id="pageSize" value="#{searchCriteria.pageSize}">
+							<f:selectItems value="#{referenceData.pageSizeOptions}" />
+						</h:selectOneMenu>
+			   		</div>
+					<div class="searchButton">
+						<h:commandButton value="Find Hotels" action="search" />
+					</div>
+				</div>
+		    </fieldset>
+		</h:form>			  
+	</div>
+
+	<div id="bookingsSection">
+		<h:form id="bookingsForm">
+			<h2>Current Hotel Bookings</h2>				
+			<h:outputText value="No Bookings Found" rendered="#{bookings.rowCount == 0}"/>
+			<h:dataTable id="bookings" styleClass="summary" value="#{bookings}" var="booking" rendered="#{bookings.rowCount > 0}">
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					#{booking.hotel.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Address</f:facet>
+					#{booking.hotel.address}
+				</h:column>
+				<h:column>
+					<f:facet name="header">City, State</f:facet>
+					#{booking.hotel.city}, #{booking.hotel.state}
+				</h:column>
+		        <h:column>
+		            <f:facet name="header">Check in date</f:facet>
+		            <h:outputText value="#{booking.checkinDate}">
+		            	<f:convertDateTime dateStyle="short"/>
+					</h:outputText>
+		        </h:column>
+		        <h:column>
+		            <f:facet name="header">Check out date</f:facet>
+		            <h:outputText value="#{booking.checkoutDate}">
+		            	<f:convertDateTime dateStyle="short"/>
+					</h:outputText>
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Confirmation number</f:facet>
+					#{booking.id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:commandLink value="Cancel" action="cancelBooking" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</div>
+
+</f:view>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<portlet-app
+	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+
+	<portlet>
+		<portlet-name>swf-booking-mvc</portlet-name>
+		<display-name>Spring Webflow Booking MVC</display-name>
+
+		<portlet-class>
+			org.springframework.web.portlet.DispatcherPortlet
+		</portlet-class>
+
+		<init-param>
+			<name>contextConfigLocation</name>
+			<value>
+				/WEB-INF/config/hotelbooking-portlet-config.xml
+			</value>
+		</init-param>
+
+		<init-param>
+			<name>viewRendererUrl</name>
+			<value>/WEB-INF/servlet/view</value>
+		</init-param>
+
+		<expiration-cache>0</expiration-cache>
+
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+
+		<portlet-info>
+			<title>Spring Webflow Booking MVC</title>
+		</portlet-info>
+
+	</portlet>
+
+</portlet-app>

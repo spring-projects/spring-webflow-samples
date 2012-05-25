@@ -1,0 +1,43 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+<ui:define name="notes">
+	<p>
+		Clicking "Book" will launch the booking sub-flow (see the subflow state in <strong>main-flow.xml</strong>).
+	</p>
+	<p>
+		The booking flow is protected with Spring Security (see the secured attribute in <strong>booking-flow.xml</strong>).
+	</p>
+	<p>
+		Clicking "Back to Search" will take you to the stateful search results. 
+	</p>
+</ui:define>
+<ui:define name="content">
+	<h1>${hotel.name}</h1>
+	<address>
+		${hotel.address}
+		<br />
+		${hotel.city}
+		<br />
+		${hotel.state} ${hotel.zip}
+		<br />
+		${hotel.country}
+	</address>
+	<h:form id="hotel">
+	    <div>
+	        Nightly Rate:&#160;
+            <h:outputText value="#{hotel.price}">
+                <f:convertNumber type="currency" currencySymbol="$"/>
+            </h:outputText>
+	    </div>
+		<div>
+			<p:commandButton id="book" action="book" value="Book Hotel" ajax="false" />
+			<p:commandButton id="cancel" action="cancel" value="Back to Search"/>
+		</div>
+	</h:form>
+</ui:define>
+</ui:composition>

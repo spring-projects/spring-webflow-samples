@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/application-config.xml
+		</param-value>
+	</context-param>
+	
+	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+	
+	<!-- Enables special Facelets debug output during development -->
+  	<context-param>
+        <param-name>facelets.DEVELOPMENT</param-name>
+   		<param-value>true</param-value>
+  	</context-param>
+  	
+  	<!-- Causes Facelets to refresh templates during development -->
+  	<context-param>
+  		<param-name>facelets.REFRESH_PERIOD</param-name>
+  		<param-value>1</param-value>
+  	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Generated Portlet Wrapper Servlet for Apache Pluto deployment -->
+	<servlet>
+		<servlet-name>swf-booking-faces</servlet-name>
+		<servlet-class>org.apache.pluto.container.driver.PortletServlet</servlet-class>
+		<init-param>
+			<param-name>portlet-name</param-name>
+			<param-value>swf-booking-faces</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>swf-booking-faces</servlet-name>
+		<url-pattern>/PlutoInvoker/swf-booking-faces</url-pattern>
+	</servlet-mapping>
+
+	<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- Just here so the JSF implementation can initialize -->
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>
+
+</web-app>

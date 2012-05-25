@@ -1,0 +1,74 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="notes">
+	<p>
+		This page uses the PrimeFaces panel component to display a search form. 
+		Mouse over the "Search String" field to see its tooltip.
+		If you are logged a second panel will show your current bookings.
+		Both panels can be toggled on and off.
+	</p>
+</ui:define>
+
+<ui:define name="content">
+
+	<p:panel header="Search Hotels" toggleable="true" toggleSpeed="100">
+		<h:form>
+			<p:messages globalOnly="true" />
+			<h:panelGrid columns="2">
+				<h:outputLabel for="searchString">Search String: </h:outputLabel>
+				<h:inputText id="searchString" value="#{searchCriteria.searchString}" />
+			   	<h:outputLabel for="pageSize">Maximum Results: </h:outputLabel>
+				<h:selectOneMenu id="pageSize" value="#{searchCriteria.pageSize}">
+					<f:selectItems value="#{referenceData.pageSizeOptions}" />
+				</h:selectOneMenu>
+				<p:commandButton id="findHotels" value="Find Hotels" action="search" update="@form" />
+			</h:panelGrid>
+			<p:tooltip for="searchString" targetPosition="topRight" position="bottomLeft"
+				value="Search hotels by name, address, city, or zip." style="cream" />
+		</h:form>			  
+	</p:panel>
+
+	<p:panel id="bookings" header="Your Hotel Bookings" rendered="#{currentUser!=null}" toggleable="true" toggleSpeed="100" style="margin-top: 10px">
+		<h:outputText value="No Bookings Found" rendered="#{bookings.rowCount==0}"/>
+		<h:form rendered="#{bookings.rowCount > 0}">
+			<p:outputPanel id="bookingsContent">
+				<p:dataTable value="#{bookings}" var="booking">
+					<p:column>
+						<f:facet name="header">Hotel</f:facet>
+						#{booking.hotel.name}<br/>
+						#{booking.hotel.address}<br/>
+						#{booking.hotel.city}, #{booking.hotel.state}
+					</p:column>
+			        <p:column>
+			            <f:facet name="header">Check in</f:facet>
+			            <h:outputText value="#{booking.checkinDate}">
+			            	<f:convertDateTime dateStyle="short"/>
+						</h:outputText>
+			        </p:column>
+			        <p:column>
+			            <f:facet name="header">Check out</f:facet>
+			            <h:outputText value="#{booking.checkoutDate}">
+			            	<f:convertDateTime dateStyle="short"/>
+						</h:outputText>
+			        </p:column>
+					<p:column>
+						<f:facet name="header">Confirmation #</f:facet>
+						#{booking.id}
+					</p:column>
+					<p:column>
+						<f:facet name="header">Action</f:facet>
+						<p:commandButton id="cancel" value="Cancel" action="cancelBooking" update=":bookings"/>
+					</p:column>
+				</p:dataTable>
+			</p:outputPanel>
+		</h:form>			  
+	</p:panel>				  
+
+</ui:define>
+</ui:composition>

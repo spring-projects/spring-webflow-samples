@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view contentType="text/html">
+
+<h:form id="hotels">
+	<h2>Hotel Results</h2>
+	<p>
+		<h:commandLink value="Change Search" action="changeSearch"/>
+	</p>
+	<div id="searchResults">
+		<h:outputText id="noHotelsText" value="No Hotels Found" rendered="#{hotels.rowCount == 0}"/>
+		<h:dataTable id="hotels" styleClass="summary" value="#{hotels}" var="hotel" rendered="#{hotels.rowCount > 0}">
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				#{hotel.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Address</f:facet>
+				#{hotel.address}
+			</h:column>
+			<h:column>
+				<f:facet name="header">City, State</f:facet>
+				#{hotel.city}, #{hotel.state}, #{hotel.country}
+			</h:column> 
+			<h:column>
+				<f:facet name="header">Zip</f:facet>
+				#{hotel.zip}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+				<h:commandLink id="viewHotelLink" value="View Hotel" action="select"/>
+			</h:column>
+		</h:dataTable>
+		<div class="next">
+			<h:commandLink id="nextPageLink" value="More Results" action="next" rendered="#{not empty hotels and hotels.rowCount == searchCriteria.pageSize}"/>
+		</div>
+		<div class="previous">
+			<h:commandLink id="previousPageLink" value="Previous results" action="previous" rendered="#{searchCriteria.page > 0}"/>
+		</div>
+	</div>
+</h:form>
+
+</f:view>
+</ui:composition>

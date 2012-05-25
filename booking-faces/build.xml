@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="swf-booking-faces">
+
+	<property name="source.version" value="1.5"/>
+	<property name="ivy.cache.dir" value="${basedir}/../../ivy-cache"/>
+	<property name="integration.repo.dir" value="${basedir}/../../integration-repo"/>
+	<property name="ivy.settings.file" value="${basedir}/../../build-spring-webflow/ivysettings.xml"/>
+
+	<property file="${basedir}/../../build.properties"/>
+	<import file="${basedir}/../../spring-build/war/default.xml"/>
+
+	<target name="publish"/>
+
+	<target name="publish-maven-central"/>
+
+	<target name="install-maven-central"/>
+
+</project>

@@ -1,6 +1,17 @@
-*.class
+*.java.hsp
+*.sonarj
+*.sw*
+.DS_Store
 
-# Package Files #
-*.jar
-*.war
-*.ear
+target
+
+# Eclipse metadata
+.classpath
+.project
+.settings
+.springBeans
+
+# IDEA metadata and output dirs
+*.iml
+*.ipr
+*.iws

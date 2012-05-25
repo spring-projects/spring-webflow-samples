@@ -1,0 +1,83 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+<ui:define name="notes">
+	<p>
+		Note that the command button actions raise events (e.g. "revise") instead of specifying method expressions.
+		The events result in transitions on the server side (see reviewBooking state in <strong>booking-flow.xml</strong>).
+	</p>
+</ui:define>
+<ui:define name="content">
+	<div class="span-5">
+		<h3>${booking.hotel.name}</h3>
+		<address>
+			${booking.hotel.address}
+			<br/>
+			${booking.hotel.city}, ${booking.hotel.state}, ${booking.hotel.zip}
+			<br/>
+			${booking.hotel.country}
+		</address>
+	</div>
+	<div class="span-12 last">
+		<h:form>
+			<p:fieldset legend="Confirm Booking Details">
+				<div>
+					<div class="span-3">Check In:</div>
+					<div class="span-8 last">
+						<p>
+							<h:outputText value="#{booking.checkinDate}">
+								<f:convertDateTime dateStyle="short"/>
+							</h:outputText>
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="span-3">Check Out:</div>
+					<div class="span-8 last">
+						<p>
+							<h:outputText value="#{booking.checkoutDate}">
+								<f:convertDateTime dateStyle="short"/>
+							</h:outputText>
+						</p>
+					</div>
+				</div>
+		        <div>
+		            <div class="span-3">Nights:</div>
+		            <div class="span-8 last">
+		                <p>
+			                <h:outputText value="#{booking.nights}"/>
+		                </p>
+		            </div>
+		        </div>
+		        <div>
+		            <div class="span-3">Total payment:</div>
+		            <div class="span-8 last">
+						<p>
+			                <h:outputText value="#{booking.total}">
+			                    <f:convertNumber type="currency" currencySymbol="$"/>
+			                </h:outputText>
+						</p>
+		            </div>
+		        </div>
+				<div>
+					<div class="span-3">Credit Card:</div>
+					<div class="span-8 last">
+						<p>
+							#{booking.creditCard}
+						</p>
+					</div>
+				</div>
+				<div>
+					<p:commandButton id="confirm" value="Confirm" action="confirm"/>&#160;
+		    		<p:commandButton id="revise" value="Revise" action="revise"/>&#160;
+		    		<p:commandButton id="cancel" value="Cancel" action="cancel" />
+				</div>
+			</p:fieldset>
+		</h:form>
+	</div>
+</ui:define>
+</ui:composition>

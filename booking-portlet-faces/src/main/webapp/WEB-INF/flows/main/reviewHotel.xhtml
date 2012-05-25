@@ -1,0 +1,52 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view contentType="text/html">
+
+<h2>View Hotel</h2>
+<table>
+	<tr class="field">
+		<td class="label">Name:</td>
+		<td class="output">#{hotel.name}</td>
+	</tr>
+	<tr class="field">
+		<td class="label">Address:</td>
+		<td class="output">#{hotel.address}</td>
+	</tr>
+	<tr class="field">
+		<td class="label">City:</td>
+		<td class="output">#{hotel.city}</td>
+	</tr>
+	<tr class="field">
+		<td class="label">State:</td>
+		<td class="output">#{hotel.state}</td>
+	</tr>
+	<tr class="field">
+		<td class="label">Zip:</td>
+		<td class="output">#{hotel.zip}</td>
+	</tr>
+	<tr class="field">
+		<td class="label">Country:</td>
+		<td class="output">#{hotel.country}</td>
+	</tr>
+    <tr class="field">
+        <td class="label">Nightly rate:</td>
+        <td class="output">
+            <h:outputText value="#{hotel.price}">
+                <f:convertNumber type="currency" currencySymbol="$"/>
+            </h:outputText>
+        </td>
+    </tr>
+</table>
+
+<h:form id="hotel">
+	<input name="execution" type="hidden" value="${flowExecutionContext.key}"/>
+	<h:commandButton id="book" action="book" value="Book Hotel"/>&#160;
+	<h:commandButton id="cancel" action="cancel" value="Back to Search"/>
+</h:form>
+
+</f:view>
+</ui:composition>

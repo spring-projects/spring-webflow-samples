@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+<tiles-definitions>
+	
+	<definition name="enterBookingDetails" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/enterBookingDetails.jsp"/>
+	</definition>
+	
+	<definition name="reviewBooking" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/reviewBooking.jsp" />
+	</definition>
+	
+</tiles-definitions>

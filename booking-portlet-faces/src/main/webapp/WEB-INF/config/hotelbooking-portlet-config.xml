@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+       xmlns:faces="http://www.springframework.org/schema/faces"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+           http://www.springframework.org/schema/faces
+           http://www.springframework.org/schema/faces/spring-faces.xsd">
+
+	<!-- Maps portlet modes to handlers -->	
+	<bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
+		<property name="portletModeMap">
+			<map>
+				<entry key="view">
+					<bean class="org.springframework.webflow.samples.booking.ViewFlowHandler" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- Maps logical view names selected by the url filename controller to .jsp view templates within the /WEB-INF directory -->	
+	<bean id="internalJspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- Enables FlowHandlers -->
+	<bean class="org.springframework.webflow.mvc.portlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"/>
+	</bean>
+
+	<!-- Executes flows: the central entry point into the Spring Web Flow system -->
+	<webflow:flow-executor id="flowExecutor">
+		<webflow:flow-execution-listeners>
+			<webflow:listener ref="facesContextLifecycleListener"/>
+		</webflow:flow-execution-listeners>
+	</webflow:flow-executor>
+	
+	<!-- The registry of executable flow definitions -->
+	<webflow:flow-registry id="flowRegistry" flow-builder-services="facesFlowBuilderServices">
+		<webflow:flow-location path="/WEB-INF/flows/view/view.xml" />
+		<webflow:flow-location path="/WEB-INF/flows/main/main.xml" />
+		<webflow:flow-location path="/WEB-INF/flows/booking/booking.xml" />
+	</webflow:flow-registry>
+	
+	<!-- Configures the Spring Web Flow JSF integration -->
+	<faces:flow-builder-services id="facesFlowBuilderServices" />
+
+	<!-- Installs a listener that creates and releases the FacesContext for each request. -->
+	<bean id="facesContextLifecycleListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
+		
+</beans>

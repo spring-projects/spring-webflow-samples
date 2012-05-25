@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	<view-state id="intro">
+		<transition on="main" to="main" />
+	</view-state>
+	
+	<subflow-state id="main" subflow="main">
+		<transition to="finish" />
+	</subflow-state>
+	
+	<end-state id="finish"/>
+			
+</flow>

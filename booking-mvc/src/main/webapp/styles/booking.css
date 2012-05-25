@@ -1,0 +1,53 @@
+
+a,a:visited,a:link,a:active {
+	color: #59924B;
+	background-color: transparent;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	color: white;
+	background-color: #65a242;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+button {
+	color: #fff;
+	background: #fff url(../images/btn.bg.gif) 0 0 repeat-x;
+	border-style: none;
+}
+
+button:hover {
+	color: yellow;
+	background: #fff url(../images/btn.bg.gif) 0 0 repeat-x;
+	border-style: none;
+}
+
+.summary {
+	width: 100%;
+	border: 1px solid #414f23;
+	border-collapse: collapse;
+}
+
+.summary thead th {
+	border-left: 1px solid #414f23;
+	background: #fff url(../images/th.bg.gif) 0 100% repeat-x;
+	border-bottom: 1px solid #414f23;
+	padding: 6px;
+	text-align: left;
+	font-size: small;
+}
+
+.summary tbody td {
+	border-left: 1px solid #9cac7c;
+	padding: 4px;
+	border-bottom: 1px solid #9cac7c;
+	font-size: 8pt;
+}
+
+.label {
+	font-weight: bold;	
+}
+

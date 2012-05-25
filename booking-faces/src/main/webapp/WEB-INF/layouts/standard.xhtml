@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Spring Faces: Hotel Booking Sample Application</title>
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/print.css" type="text/css" media="print" />
+	<!--[if lt IE 8]>
+		<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
+	<![endif]-->
+	<link rel="stylesheet" href="${request.contextPath}/styles/le-frog/jquery-ui-1.8.2.custom.css" type="text/css" media="screen" />
+	<ui:insert name="headIncludes"/>
+	<style>
+	<!--
+		div.ui-datatable > table {
+			margin-bottom: 0;
+		}
+	-->
+	</style>
+</h:head>
+<h:body>
+<div class="container">
+	<div>
+		<h4 class="alt bottom">
+			<c:if test="${not empty currentUser.name}">
+		    	Welcome, ${currentUser.name} | <a href="${request.contextPath}/spring/logout">Logout</a>
+			</c:if>
+			<c:if test="${empty currentUser.name}">
+				<a href="${request.contextPath}/spring/login">Login</a>
+			</c:if>
+		</h4>
+	</div>
+	<div>
+		<a href="#{request.contextPath}"><img src="${request.contextPath}/images/header.jpg" height="200" width="950" alt="Spring Travel"/></a>
+	</div>		
+	<hr class="space" />
+	<div>
+		<div id="local" class="span-4 colborder">
+			<h3>Comments:</h3>
+			<ui:insert name="notes"/>
+		</div>
+		<div class="span-19 last">
+			<ui:insert name="content"/>
+		</div>
+	</div>
+	<hr class="space" />
+	<div>
+		<a href="http://www.springframework.org">
+			<img src="${request.contextPath}/images/powered-by-spring.png" alt="Powered by Spring" />
+		</a>
+	</div>
+</div>
+</h:body>
+</f:view>
+</html>

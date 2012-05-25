@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	<var name="searchCriteria" class="org.springframework.webflow.samples.booking.SearchCriteria" />
+	
+	<view-state id="enterSearchCriteria">
+		<on-render>
+			<evaluate expression="bookingService.findBookings(currentUser.name)" result="flowScope.bookings" result-type="dataModel" />
+		</on-render>
+		<transition on="search" to="reviewHotels" />
+		<transition on="cancelBooking">
+			<evaluate expression="bookingService.cancelBooking(bookings.selectedRow)" />
+		</transition>
+	</view-state>
+	 
+	<view-state id="reviewHotels">
+		<on-render>
+			<evaluate expression="bookingService.findHotels(searchCriteria)" result="flowScope.hotels" result-type="dataModel" />
+		</on-render>
+		<transition on="previous">
+			<evaluate expression="searchCriteria.previousPage()" />
+		</transition>
+		<transition on="next">
+			<evaluate expression="searchCriteria.nextPage()" />
+		</transition>
+		<transition on="select" to="reviewHotel" />
+		<transition on="changeSearch" to="enterSearchCriteria" />
+	</view-state>
+	
+	<view-state id="reviewHotel">
+		<on-render>
+			<set name="requestScope.hotel" value="hotels.selectedRow" />
+		</on-render>
+		<transition on="book" to="bookHotel" />
+		<transition on="cancel" to="enterSearchCriteria" />
+	</view-state>
+
+	<subflow-state id="bookHotel" subflow="booking">
+		<input name="hotelId" value="hotels.selectedRow.id" />
+		<transition on="bookingConfirmed" to="finish" />
+		<transition on="bookingCancelled" to="enterSearchCriteria" />
+	</subflow-state>
+
+	<end-state id="finish" />
+			
+</flow>

@@ -1,0 +1,44 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sf="http://www.springframework.org/tags/faces"
+				template="layouts/standard.xhtml">
+
+<ui:define name="notes">
+	<p>
+		This is a simple standalone JSF page. 
+	</p>
+	<p>
+		Clicking the "Start" link below will launch the main to search for hotels (see <strong>main-flow.xml</strong>).
+		The main flow in turn launches the booking sub-flow to book the hotel (see <strong>booking-flow.xml</strong>).
+	</p>
+	<p>
+		The main flow is accessible without logging in while the booking flow requires authentication.
+	</p>
+</ui:define>
+
+<ui:define name="content">
+<div>
+	<h1>Welcome to Spring Travel</h1>
+	<h3 class="alt">Spring Web Flow and JSF 2 with PrimeFaces components</h3>
+	<hr />
+	<p>
+		Key features illustrated in this sample:
+	</p>
+	<ul>
+		<li>A declarative navigation model enabling full browser button support and dynamic navigation rules</li>
+		<li>A fine-grained state management model, including support for conversation, view, and flash scopes</li>
+		<li>Partial page rendering via Ajax with JSF 2</li>
+		<li>Modularization of web application functionality by domain use case, illustrating project structure best-practices</li>
+		<li>Spring Security integration</li>
+		<li>Page layout with Blueprint CSS</li>
+		<li>Exception handling support across all layers of the application</li>
+	</ul>
+	<p>
+		<a href="main">Start your Spring Travel experience</a>
+	</p>
+</div>
+</ui:define>
+</ui:composition>

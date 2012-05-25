@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.springframework.webflow</groupId>
+	<artifactId>spring-webflow-samples</artifactId>
+	<packaging>pom</packaging>
+	<name>Spring Web Flow Samples</name>
+	<version>1.0.0.BUILD-SNAPSHOT</version>
+	<modules>
+		<module>booking-mvc</module>
+		<module>booking-faces</module>
+		<module>booking-portlet-mvc</module>
+		<module>booking-portlet-faces</module>
+		<module>jsf-booking</module>
+	</modules>
+</project>

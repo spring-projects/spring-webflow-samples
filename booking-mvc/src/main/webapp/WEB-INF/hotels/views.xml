@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+<tiles-definitions>
+	
+	<definition name="hotels/search" extends="standardLayout">
+		<put-attribute name="body">
+			<definition template="/WEB-INF/hotels/search.jsp">
+				<put-attribute name="searchForm" value="/WEB-INF/hotels/searchForm.jsp" />
+				<put-attribute name="bookingsTable" value="/WEB-INF/hotels/bookingsTable.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="hotels/*" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/hotels/{1}.jsp" />
+	</definition>
+
+</tiles-definitions>

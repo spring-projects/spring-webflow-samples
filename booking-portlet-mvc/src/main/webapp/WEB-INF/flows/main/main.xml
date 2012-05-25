@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	<var name="searchCriteria" class="org.springframework.webflow.samples.booking.SearchCriteria"  />
+	
+	<view-state id="enterSearchCriteria" model="searchCriteria">
+		<on-render>
+			<evaluate expression="bookingService.findBookings(currentUser.name)" result="requestScope.bookings" />
+		</on-render>
+		<transition on="search" to="reviewHotels" >
+			<evaluate expression="searchCriteria.resetPage()" />
+		</transition>
+		<transition on="cancelBooking" to="cancelBooking" bind="false" />
+	</view-state>
+
+	<view-state id="reviewHotels">
+		<on-render>
+			<evaluate expression="bookingService.findHotels(searchCriteria)" result="requestScope.hotels" />
+		</on-render>
+		<transition on="previous">
+			<evaluate expression="searchCriteria.previousPage()" />
+		</transition>
+		<transition on="next">
+			<evaluate expression="searchCriteria.nextPage()" />
+		</transition>
+		<transition on="select" to="reviewHotel">
+			<set name="flowScope.hotelId" value="requestParameters.hotelId" type="long"/>
+		</transition>
+		<transition on="changeSearch" to="enterSearchCriteria" />
+	</view-state>
+	
+	<view-state id="reviewHotel">
+		<on-render>
+			<evaluate expression="bookingService.findHotelById(hotelId)" result="requestScope.hotel" />
+		</on-render>
+		<transition on="book" to="bookHotel" />
+		<transition on="cancel" to="enterSearchCriteria" />
+	</view-state>
+	
+	<subflow-state id="bookHotel" subflow="booking">
+		<input name="hotelId" />
+		<transition on="bookingConfirmed" to="finish" />
+		<transition on="cancel" to="enterSearchCriteria" />
+	</subflow-state>
+
+	<action-state id="cancelBooking">
+		<evaluate expression="bookingService.cancelBooking(requestParameters.bookingId)" />	
+		<transition on="success" to="enterSearchCriteria" />
+	</action-state>
+	
+	<end-state id="finish"/>
+
+</flow>
