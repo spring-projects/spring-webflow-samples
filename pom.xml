@@ -12,6 +12,5 @@
 		<module>booking-faces</module>
 		<module>booking-portlet-mvc</module>
 		<module>booking-portlet-faces</module>
-		<module>jsf-booking</module>
 	</modules>
 </project>
