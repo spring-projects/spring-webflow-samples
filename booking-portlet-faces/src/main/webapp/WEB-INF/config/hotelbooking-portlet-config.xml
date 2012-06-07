@@ -52,5 +52,8 @@
 
 	<!-- Installs a listener that creates and releases the FacesContext for each request. -->
 	<bean id="facesContextLifecycleListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
+
+	<!-- Serve JSF resources via the MVC portlet -->
+	<bean class="org.springframework.faces.webflow.context.portlet.JsfResourceRequestHandler"/>
 		
 </beans>

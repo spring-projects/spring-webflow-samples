@@ -5,6 +5,6 @@
 
 <faces-config>
 	<application>
-		<view-handler>org.springframework.faces.webflow.application.portlet.PortletFaceletViewHandler</view-handler>  
+		<view-handler>org.springframework.faces.webflow.context.portlet.PortletViewHandler</view-handler>  
 	</application>
 </faces-config>
