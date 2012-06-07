@@ -10,9 +10,9 @@
 
 	<properties>
 		<springframework-version>3.1.1.RELEASE</springframework-version>
-		<webflow-version>2.3.1.RELEASE</webflow-version>
+		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
-		<myfaces-version>1.2.9</myfaces-version>
+		<myfaces-version>2.1.6</myfaces-version>
 	</properties>
 
 	<repositories>
@@ -74,7 +74,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.5.0-Final</version>
 		</dependency>
-		<!-- JSF, Facelets -->
+		<!-- JSF -->
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
@@ -84,11 +84,6 @@
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-impl</artifactId>
 			<version>${myfaces-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.facelets</groupId>
-			<artifactId>jsf-facelets</artifactId>
-			<version>1.1.14</version>
 		</dependency>
 		<!-- Logging -->
 		<dependency>

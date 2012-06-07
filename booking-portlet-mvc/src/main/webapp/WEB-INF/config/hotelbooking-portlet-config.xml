@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/webflow-config
-           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd">
 
 	<!-- Maps portlet modes to handlers -->	
 	<bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">

@@ -7,9 +7,9 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/webflow-config
-           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
            http://www.springframework.org/schema/faces
-           http://www.springframework.org/schema/faces/spring-faces.xsd">
+           http://www.springframework.org/schema/faces/spring-faces-2.2.xsd">
 
 	<!-- Maps portlet modes to handlers -->	
 	<bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
@@ -52,5 +52,8 @@
 
 	<!-- Installs a listener that creates and releases the FacesContext for each request. -->
 	<bean id="facesContextLifecycleListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
+
+	<!-- Serve JSF resources via the MVC portlet -->
+	<bean class="org.springframework.faces.webflow.context.portlet.JsfResourceRequestHandler"/>
 		
 </beans>

@@ -4,6 +4,7 @@
 .DS_Store
 
 target
+bin
 
 # Eclipse metadata
 .classpath
