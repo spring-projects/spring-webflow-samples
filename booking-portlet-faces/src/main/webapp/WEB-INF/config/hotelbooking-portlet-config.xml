@@ -22,6 +22,9 @@
 		</property>
 	</bean>
 
+	<!-- Serve JSF resources via the MVC portlet -->
+	<faces:resources/>
+
 	<!-- Maps logical view names selected by the url filename controller to .jsp view templates within the /WEB-INF directory -->	
 	<bean id="internalJspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/" />
@@ -53,7 +56,4 @@
 	<!-- Installs a listener that creates and releases the FacesContext for each request. -->
 	<bean id="facesContextLifecycleListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
 
-	<!-- Serve JSF resources via the MVC portlet -->
-	<bean class="org.springframework.faces.webflow.context.portlet.JsfResourceRequestHandler"/>
-		
 </beans>
