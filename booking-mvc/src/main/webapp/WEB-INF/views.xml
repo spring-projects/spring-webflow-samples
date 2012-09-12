@@ -6,7 +6,7 @@
 <tiles-definitions>
 	
 	<definition name="intro" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="/WEB-INF/intro.jsp" type="jsp"/>
+		<put-attribute name="body" value="intro.html"/>
 	</definition>
 	
 	<definition name="login" extends="standardLayout" templateType="jsp">
