@@ -5,12 +5,12 @@
 	
 <tiles-definitions>
 	
-	<definition name="enterBookingDetails" extends="standardLayout">
-		<put-attribute name="body" value="/WEB-INF/hotels/booking/enterBookingDetails.jsp"/>
+	<definition name="enterBookingDetails" extends="standardLayout" templateType="jsp">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/enterBookingDetails.jsp" type="jsp"/>
 	</definition>
 	
-	<definition name="reviewBooking" extends="standardLayout">
-		<put-attribute name="body" value="/WEB-INF/hotels/booking/reviewBooking.jsp" />
+	<definition name="reviewBooking" extends="standardLayout" templateType="jsp">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/reviewBooking.jsp" type="jsp"/>
 	</definition>
 	
 </tiles-definitions>
