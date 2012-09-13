@@ -10,11 +10,11 @@
 	</definition>
 	
 	<definition name="login" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="/WEB-INF/login.jsp" type="jsp"/>
+		<put-attribute name="body" value="login.html"/>
 	</definition>
 	
 	<definition name="logoutSuccess" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="/WEB-INF/logoutSuccess.jsp" type="jsp"/>
+		<put-attribute name="body" value="logoutSuccess.html"/>
 	</definition>
 	
 </tiles-definitions>
