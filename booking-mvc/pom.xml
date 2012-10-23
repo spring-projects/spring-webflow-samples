@@ -9,7 +9,7 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>3.2.0.RELEASE</springframework-version>
+		<springframework-version>3.2.1.RELEASE</springframework-version>
 		<springsecurity-version>3.1.3.RELEASE</springsecurity-version>
 		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
@@ -66,13 +66,23 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
 				 </exclusion>
-			</exclusions>						
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${springsecurity-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
+				 </exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -83,6 +93,10 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
 				 </exclusion>
 			</exclusions>						
         </dependency>	

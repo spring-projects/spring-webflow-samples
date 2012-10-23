@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:faces="http://www.springframework.org/schema/faces"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:faces="http://www.springframework.org/schema/faces"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.4.xsd">
