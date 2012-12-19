@@ -55,16 +55,17 @@
 	</bean>
 
 	<!-- Thymeleaf Template Engine -->
-  	<bean id="templateEngine"
-		  class="org.thymeleaf.spring3.SpringTemplateEngine">
-		<property name="templateResolver" ref="templateResolver" />
-		<property name="additionalDialects">
-			<set>
-				<bean class="org.thymeleaf.extras.tiles2.dialect.TilesDialect"/>
-				<bean class="org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect"/>
-			</set>
-		</property>
-	</bean>
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring3.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+        <property name="additionalDialects">
+            <set>
+                <bean class="org.thymeleaf.extras.tiles2.dialect.TilesDialect"/>
+                <bean class="org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect"/>
+                <bean class="org.thymeleaf.extras.conditionalcomments.dialect.ConditionalCommentsDialect"/>
+            </set>
+        </property>
+    </bean>
 
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<bean id="tilesViewResolver" class="org.thymeleaf.spring3.view.AjaxThymeleafViewResolver">

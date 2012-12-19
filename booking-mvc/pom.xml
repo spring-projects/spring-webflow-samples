@@ -13,9 +13,10 @@
 		<springsecurity-version>3.1.3.RELEASE</springsecurity-version>
 		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
-		<thymeleaf-version>2.0.14-SNAPSHOT</thymeleaf-version>
-		<thymeleaf-extras-tiles2-version>1.0.0-beta3-SNAPSHOT</thymeleaf-extras-tiles2-version>
-		<thymeleaf-extras-springsecurity3-version>1.0.0-beta2-SNAPSHOT</thymeleaf-extras-springsecurity3-version>
+		<thymeleaf-version>2.0.15</thymeleaf-version>
+		<thymeleaf-extras-tiles2-version>1.0.0-beta3</thymeleaf-extras-tiles2-version>
+		<thymeleaf-extras-springsecurity3-version>1.0.0-beta2</thymeleaf-extras-springsecurity3-version>
+		<thymeleaf-extras-conditionalcomments-version>1.0.0-beta1</thymeleaf-extras-conditionalcomments-version>
 		<tiles-version>2.2.2</tiles-version>
 	</properties>
 

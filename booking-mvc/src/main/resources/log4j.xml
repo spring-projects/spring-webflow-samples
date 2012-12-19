@@ -40,7 +40,7 @@
 	</logger>
 
 	<logger name="org.thymeleaf">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 		
 	<!-- Root Logger -->
