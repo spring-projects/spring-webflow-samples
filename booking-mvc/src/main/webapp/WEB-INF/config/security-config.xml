@@ -7,7 +7,7 @@
            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 	<!-- Configure Spring Security -->
-	<security:http auto-config="true">
+	<security:http auto-config="true" use-expressions="true">
 		<security:form-login login-page="/login" login-processing-url="/loginProcess" 
 			default-target-url="/hotels/search" authentication-failure-url="/login?login_error=1" />
 		<security:logout logout-url="/logout" logout-success-url="/logoutSuccess" />

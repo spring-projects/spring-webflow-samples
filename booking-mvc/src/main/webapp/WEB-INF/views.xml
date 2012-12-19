@@ -5,16 +5,16 @@
 	
 <tiles-definitions>
 	
-	<definition name="intro" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="intro.html"/>
+	<definition name="intro" extends="standardLayout">
+		<put-attribute name="body" value="intro.html" type="thymeleaf"/>
 	</definition>
 	
-	<definition name="login" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="login.html"/>
+	<definition name="login" extends="standardLayout">
+		<put-attribute name="body" value="login.html" type="thymeleaf"/>
 	</definition>
 	
-	<definition name="logoutSuccess" extends="standardLayout" templateType="jsp">
-		<put-attribute name="body" value="logoutSuccess.html"/>
+	<definition name="logoutSuccess" extends="standardLayout">
+		<put-attribute name="body" value="logoutSuccess.html" type="thymeleaf"/>
 	</definition>
 	
 </tiles-definitions>
