@@ -6,5 +6,6 @@
 <tiles-definitions>
 	
     <definition name="standardLayout" template="layouts/standard.html" templateType="thymeleaf"/>
-	
+    <definition name="standardLayoutJSP" template="/WEB-INF/layouts/standard.jsp" templateType="jsp"/>
+    	
 </tiles-definitions>
