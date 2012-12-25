@@ -1,0 +1,19 @@
+<h1 th:text="${hotel.name}">The Herb Plaza</h1>
+<address>
+	<span th:text="${hotel.address}">Thyme Square, 13</span>
+	<br />
+	<span th:text="${hotel.city}">Icetown</span>, 
+    <span th:text="${hotel.state}">North Pole</span>, 
+    <span th:text="${hotel.zip}">0W</span>
+	<br />
+	<span th:text="${hotel.country}">Earth</span>
+</address>
+<form action="booking?mode=embedded" method="get">
+	<p>
+		Nightly Rate: <span th:text="${hotel.price}">4,300</span>
+	</p>
+	<input type="hidden" name="hotelId" th:value="${hotel.id}" />
+	<div>
+		<button type="submit">Book Hotel</button>
+	</div>
+</form>
