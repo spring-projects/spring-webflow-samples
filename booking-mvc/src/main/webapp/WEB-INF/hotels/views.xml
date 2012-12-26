@@ -8,14 +8,14 @@
 	<definition name="hotels/search" extends="standardLayout">
 		<put-attribute name="body">
 			<definition template="hotels/search.html" templateType="thymeleaf">
-				<put-attribute name="searchForm" value="hotels/searchForm.html" type="thymeleaf"/>
-				<put-attribute name="bookingsTable" value="hotels/bookingsTable.html" type="thymeleaf"/>
+				<put-attribute name="searchForm" value="/hotels/searchForm.html" type="thymeleaf"/>
+				<put-attribute name="bookingsTable" value="/hotels/bookingsTable.html" type="thymeleaf"/>
 			</definition>
 		</put-attribute>
 	</definition>
 
-	<definition name="hotels/*" extends="standardLayoutJSP" templateType="jsp">
-		<put-attribute name="body" value="/WEB-INF/hotels/{1}.jsp" type="jsp"/>
+	<definition name="hotels/*" extends="standardLayout" templateType="thymeleaf">
+		<put-attribute name="body" value="/hotels/{1}.html" type="thymeleaf"/>
 	</definition>
 
 </tiles-definitions>

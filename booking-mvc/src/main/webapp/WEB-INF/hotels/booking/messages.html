@@ -1,0 +1,6 @@
+
+<div id="messages">
+    <ul th:if="${#fields.hasErrors('*')}" class="errors">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+    </ul>
+</div>
