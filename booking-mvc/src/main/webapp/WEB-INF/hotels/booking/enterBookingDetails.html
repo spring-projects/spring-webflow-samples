@@ -38,10 +38,12 @@
 					<div class="span-7 last">
 						<p><input type="text" th:field="*{checkinDate}" /></p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							Spring.addDecoration(new Spring.ElementDecoration({
 								elementId : "checkinDate",
 								widgetType : "dijit.form.DateTextBox",
-								widgetAttrs : { datePattern : "MM-dd-yyyy", required : true }}));  
+								widgetAttrs : { datePattern : "MM-dd-yyyy", required : true }}));
+							// ]]>
 						</script>
 						
 					</div>
@@ -53,10 +55,12 @@
 					<div class="span-7 last">
 						<p><input type="text" th:field="*{checkoutDate}" /></p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							Spring.addDecoration(new Spring.ElementDecoration({
 								elementId : "checkoutDate",
 								widgetType : "dijit.form.DateTextBox",
-								widgetAttrs : { datePattern : "MM-dd-yyyy", required : true }}));  
+								widgetAttrs : { datePattern : "MM-dd-yyyy", required : true }}));
+							// ]]>
 						</script>
 					</div>
 				</div>
@@ -84,6 +88,7 @@
                             <input type="radio" id="non-smoking" th:field="*{smoking}" value="false" /><label for="non-smoking">Non Smoking</label>
 						</p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							Spring.addDecoration(new Spring.ElementDecoration({
 								elementId : 'smoking',
 								widgetType : "dijit.form.RadioButton",
@@ -96,6 +101,7 @@
 								widgetModule : "dijit.form.CheckBox",
 								widgetAttrs : { value : "false" }
 							}));
+							// ]]>
 						</script>
 					</div>
 				</div>
@@ -112,6 +118,7 @@
                             <input type="checkbox" th:field="*{amenities}" value="MINIBAR" /><label th:for="${#ids.prev('amenities')}">Minibar</label>
 						</p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							dojo.query("#amenities input[type='checkbox']").forEach(function(element){
 								Spring.addDecoration(new Spring.ElementDecoration({
 									elementId: element.id,
@@ -119,6 +126,7 @@
 									widgetAttrs : { checked : element.checked }
 								}));
 							});
+							// ]]>
 						</script>
 					</div>
 				</div>
@@ -129,11 +137,13 @@
 					<div class="span-7 last">
 						<p><input type="text" th:field="*{creditCard}" /></p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							Spring.addDecoration(new Spring.ElementDecoration({
 								elementId : "creditCard",
 								widgetType : "dijit.form.ValidationTextBox",
 								widgetAttrs : { required : true, invalidMessage : "A 16-digit credit card number is required.", 
 								regExp : "[0-9]{16}"  }}));
+							// ]]>
 						</script>
 					</div>
 				</div>
@@ -144,10 +154,12 @@
 					<div class="span-7 last">
                         <p><input type="text" th:field="*{creditCardName}" maxlength="40" /></p>
 						<script type="text/javascript">
+				            // <![CDATA[
 							Spring.addDecoration(new Spring.ElementDecoration({
 								elementId : "creditCardName",
 								widgetType : "dijit.form.ValidationTextBox",
 								widgetAttrs : { required : true }}));
+							// ]]>
 						</script>
 					</div>
 				</div>
@@ -183,12 +195,14 @@
 				</div>
 				<div>
 					<p>
-					<button type="submit" id="proceed" name="_eventId_proceed">Proceed</button>
-					<button type="submit" name="_eventId_cancel" >Cancel</button>
+					    <button type="submit" id="proceed" name="_eventId_proceed">Proceed</button>
+					    <button type="submit" name="_eventId_cancel" >Cancel</button>
 					</p>
 					<script type="text/javascript">
+			            // <![CDATA[
 						Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));
 						Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'proceed',event:'onclick',formId:'booking'}));
+						// ]]>
 					</script>
 				</div>
 			</fieldset>
