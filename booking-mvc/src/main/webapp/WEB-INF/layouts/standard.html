@@ -23,6 +23,7 @@
 <body class="tundra">
 
 <div id="page" class="container">
+
 	<div id="header">
 		<div id="topbar">
 			<p sec:authorize="hasRole('ROLE_USER')" th:if="${#authentication}">
@@ -41,6 +42,7 @@
 			</p>
 		</div>
 	</div>
+    
 	<div id="content">
 		<div id="local" class="span-6">
 			<p>
@@ -58,12 +60,15 @@
           Body here...
 		</div>
 	</div>
+    
 	<hr />
+    
 	<div id="footer">
 		<a href="http://www.springframework.org">
 			<img src="../../images/powered-by-spring.png" th:src="@{/resources/images/powered-by-spring.png}" alt="Powered by Spring" />
 		</a>
 	</div>
+    
 </div>
 </body>
 </html>
