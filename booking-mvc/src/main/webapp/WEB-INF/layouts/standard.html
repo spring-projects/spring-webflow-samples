@@ -6,19 +6,40 @@
       lang="en">
 
 <head>
+
+    <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
-	<link type="text/css" rel="stylesheet" href="#" th:href="@{/resources/dijit/themes/tundra/tundra.css}" />
-	<link rel="stylesheet" href="../../styles/blueprint/screen.css" th:href="@{/resources/styles/blueprint/screen.css}" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="../../styles/blueprint/print.css" th:href="@{/resources/styles/blueprint/print.css}" type="text/css" media="print" />
+    
+	<link rel="stylesheet" type="text/css" media="screen, projection" 
+          href="../../styles/blueprint/screen.css" 
+          th:href="@{/resources/styles/blueprint/screen.css}" />
+    
+	<link rel="stylesheet" type="text/css" media="print" 
+          href="../../styles/blueprint/print.css" 
+          th:href="@{/resources/styles/blueprint/print.css}" />
+    
 	<!--[if lt IE 8]>
-	        <link rel="stylesheet" href="../../styles/blueprint/ie.css" th:href="@{/resources/styles/blueprint/ie.css}" type="text/css" media="screen, projection" />
+	    <link rel="stylesheet" type="text/css" media="screen, projection"
+              href="../../styles/blueprint/ie.css" 
+              th:href="@{/resources/styles/blueprint/ie.css}" />
 	<![endif]-->
-	<link rel="stylesheet" href="../../styles/booking.css" th:href="@{/resources/styles/booking.css}" type="text/css" media="screen" />
+    
+	<link rel="stylesheet" type="text/css" media="screen" 
+          href="../../styles/booking.css" 
+          th:href="@{/resources/styles/booking.css}" />
+
+    
+    <!-- The following styles and scripts are served from spring-js-resources-{ver}.jar -->
+    
+    <link rel="stylesheet" type="text/css" 
+          href="#" th:href="@{/resources/dijit/themes/tundra/tundra.css}" />
+    
     <script type="text/javascript" src="#" th:src="@{/resources/dojo/dojo.js}"></script>
     <script type="text/javascript" src="#" th:src="@{/resources/spring/Spring.js}"></script>
     <script type="text/javascript" src="#" th:src="@{/resources/spring/Spring-Dojo.js}"></script>
+    
 </head>
+
 
 <body class="tundra">
 
@@ -57,7 +78,15 @@
 			</p>
 		</div>
 		<div id="main" class="span-18 last" tiles:include="body">
-          Body here...
+
+          <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->      
+          <!-- At runtime, the body of this <div> will be substituted by -->
+          <!-- Tiles in order to create the final HTML page that will be -->
+          <!-- sent to the browser.                                      -->
+          <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->      
+          
+          BODY PAGE GOES HERE!
+          
 		</div>
 	</div>
     
