@@ -52,23 +52,23 @@
 <h1 th:text="${hotel.name}">The Herb Plaza</h1>
 
 <address th:object="${hotel}">
-	<span th:text="*{address}">Thyme Square, 13</span>
-	<br />
-	<span th:text="*{city}">Icetown</span>, 
+    <span th:text="*{address}">Thyme Square, 13</span>
+    <br />
+    <span th:text="*{city}">Icetown</span>, 
     <span th:text="*{state}">North Pole</span>, 
     <span th:text="*{zip}">0W</span>
-	<br />
-	<span th:text="*{country}">Earth</span>
+    <br />
+    <span th:text="*{country}">Earth</span>
 </address>
 
 <form action="#" th:action="@{/hotels/booking(mode='embedded')}" method="get">
-	<p>
-		Nightly Rate: <span th:text="${hotel.price}">4,300</span>
-	</p>
-	<input type="hidden" name="hotelId" th:value="${hotel.id}" />
-	<div>
-		<button type="submit">Book Hotel</button>
-	</div>
+    <p>
+        Nightly Rate: <span th:text="${hotel.price}">4,300</span>
+    </p>
+    <input type="hidden" name="hotelId" th:value="${hotel.id}" />
+    <div>
+        <button type="submit">Book Hotel</button>
+    </div>
 </form>
 
 
