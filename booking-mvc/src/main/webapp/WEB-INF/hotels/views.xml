@@ -7,15 +7,15 @@
 	
 	<definition name="hotels/search" extends="standardLayout">
 		<put-attribute name="body">
-			<definition template="hotels/search.html" templateType="thymeleaf">
-				<put-attribute name="searchForm" value="/hotels/searchForm.html" type="thymeleaf"/>
-				<put-attribute name="bookingsTable" value="/hotels/bookingsTable.html" type="thymeleaf"/>
+			<definition template="hotels/search.html :: content" templateType="thymeleaf">
+				<put-attribute name="searchForm" value="/hotels/searchForm.html :: content" type="thymeleaf"/>
+				<put-attribute name="bookingsTable" value="/hotels/bookingsTable.html :: content" type="thymeleaf"/>
 			</definition>
 		</put-attribute>
 	</definition>
 
 	<definition name="hotels/*" extends="standardLayout" templateType="thymeleaf">
-		<put-attribute name="body" value="/hotels/{1}.html" type="thymeleaf"/>
+		<put-attribute name="body" value="/hotels/{1}.html :: content" type="thymeleaf"/>
 	</definition>
 
 </tiles-definitions>

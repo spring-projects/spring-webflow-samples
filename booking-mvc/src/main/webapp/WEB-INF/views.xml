@@ -6,15 +6,15 @@
 <tiles-definitions>
 	
 	<definition name="intro" extends="standardLayout">
-		<put-attribute name="body" value="/intro.html" type="thymeleaf"/>
+		<put-attribute name="body" value="/intro.html :: content" type="thymeleaf"/>
 	</definition>
 	
 	<definition name="login" extends="standardLayout">
-		<put-attribute name="body" value="/login.html" type="thymeleaf"/>
+		<put-attribute name="body" value="/login.html :: content" type="thymeleaf"/>
 	</definition>
 	
 	<definition name="logoutSuccess" extends="standardLayout">
-		<put-attribute name="body" value="/logoutSuccess.html" type="thymeleaf"/>
+		<put-attribute name="body" value="/logoutSuccess.html :: content" type="thymeleaf"/>
 	</definition>
 	
 </tiles-definitions>
