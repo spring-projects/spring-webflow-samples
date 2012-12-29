@@ -76,7 +76,9 @@
         <form id="booking" action="#" th:object="${booking}" th:action="${flowExecutionUrl}" method="post">
 
             <div class="error" th:if="${#fields.hasErrors('*')}">
-                <span th:each="err : ${#fields.errors('*')}" th:text="${err} + '&lt;br /&gt;'">Input is incorrect</span>
+                <span th:each="err : ${#fields.errors('*')}">
+                  <span th:text="${err}">Input is incorrect</span><br />
+                </span>
             </div>
         
 			<fieldset>
