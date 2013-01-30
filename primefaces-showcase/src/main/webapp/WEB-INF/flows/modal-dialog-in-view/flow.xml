@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="parent-flow">
+
+	<!--
+		Also see ../parent-flow.xml. 
+	-->
+
+	<view-state id="view">
+		<transition on="android">
+			<set name="viewScope.selectedPhone" value="'Android'" />
+		</transition>
+		<transition on="blackberry">
+			<set name="viewScope.selectedPhone" value="'BlackBerry'" />
+		</transition>
+		<transition on="iphone">
+			<set name="viewScope.selectedPhone" value="'iPhone'" />
+		</transition>
+		<transition on="confirm" >
+			<evaluate expression="modalAction.addInfoMessage(selectedPhone + ' is a truly awesome phone!')" />
+		</transition>
+		<transition on="cancel" />
+	</view-state>
+
+</flow>

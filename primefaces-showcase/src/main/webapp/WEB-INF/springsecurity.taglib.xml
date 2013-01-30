@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib>
+	<namespace>http://www.springframework.org/security/tags</namespace>
+	<tag>
+		<tag-name>authorize</tag-name>
+		<handler-class>org.springframework.faces.security.FaceletsAuthorizeTagHandler</handler-class>
+	</tag>
+	<function>
+		<function-name>areAllGranted</function-name>
+		<function-class>org.springframework.faces.security.FaceletsAuthorizeTagUtils</function-class>
+		<function-signature>boolean areAllGranted(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>areAnyGranted</function-name>
+		<function-class>org.springframework.faces.security.FaceletsAuthorizeTagUtils</function-class>
+		<function-signature>boolean areAnyGranted(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>areNotGranted</function-name>
+		<function-class>org.springframework.faces.security.FaceletsAuthorizeTagUtils</function-class>
+		<function-signature>boolean areNotGranted(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>isAllowed</function-name>
+		<function-class>org.springframework.faces.security.FaceletsAuthorizeTagUtils</function-class>
+		<function-signature>boolean isAllowed(java.lang.String, java.lang.String)</function-signature>
+	</function>
+</facelet-taglib>

@@ -1,0 +1,61 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Standard JSR-303 Bean Validation</ui:define>
+
+<ui:define name="notes">
+	<p>
+	  	Flow definition and view.xhtml in <span class="alt">src/main/webapp/WEB-INF/flows/validation-bean</span><br/>
+	  	Java class with JSR-303 validation annotations <span class="alt">~/validation/Account.java</span><br/>
+	  	Customized @NotNull constraint message in <span class="alt">src/main/resources/ValidationMessages.properties</span><br/>
+		Customized pattern used by JSF for Bean Validation in <span class="alt">src/main/resources/org/springframework/samples/webflow/JsfMessageResources.properties</span><br/>
+		Registration of <span class="alt">JsfMessageResources.properties</span> in <span class="alt">src/main/webapp/WEB-INF/faces-config.xml</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+<h:form>
+	<p:fieldset legend="Account Details">
+		<div>
+			<div class="span-8 colborder">
+				<p:messages />
+				<p>
+					<h:outputLabel for="firstName">First Name: </h:outputLabel><br/>
+					<h:inputText id="firstName" label="First Name" value="#{account.firstName}" />
+				</p>
+				<p>
+					<h:outputLabel for="lastName">Last Name: </h:outputLabel><br/>
+					<h:inputText id="lastName" label="Last Name" value="#{account.lastName}" />
+				</p>
+				<p>
+					<h:outputLabel for="dateOfBirth">Date of Birth: </h:outputLabel><br/>
+					<p:calendar id="dateOfBirth" label="Date of Birth" value="#{account.dateOfBirth}" pattern="MM/dd/yyyy" />
+				</p>
+				<p>
+					<p:commandButton value="Next &gt;&gt;" action="next" execute="@form" update="@form"/>&nbsp;
+					<p:commandButton value="Exit" action="exit" immediate="true" />
+				</p>
+			</div>
+			<div class="span-13 last">
+				<p>
+					By default JSF does not include field names in messages resulting from standard bean validation.
+					For example instead of seeing "First name may not be empty" you would see "may not be empty". 
+					To change this behavior we've customized the pattern used by 
+					<span class="alt">javax.faces.validator.BeanValidator</span>.<br/>
+					See the following for details:<br/>
+					<span class="alt">src/main/webapp/WEB-INF/faces-config.xml</span>
+					<span class="alt">src/main/resources/org/springframework/samples/webflow/JsfMessageResources.properties</span><br/>
+				</p>
+			</div>
+		</div>
+	</p:fieldset>
+</h:form>
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- 
+		Configure Spring Security 
+	-->
+	<security:http auto-config="true" use-expressions="true">
+		<security:form-login login-page="/app/login" login-processing-url="/app/j_spring_security_check" 
+			default-target-url="/app/home" authentication-failure-url="/app/login?login_error=1" />
+		<security:logout logout-url="/app/logout" logout-success-url="/app/home" />
+		<security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
+		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />
+	</security:http>
+
+	<!--
+		Define local authentication provider, a real app would use an external provider (JDBC, LDAP, CAS, etc)
+		
+		usernames/passwords are:
+			joe/joe1
+			pete/pete1
+	-->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:user-service>
+				<security:user name="joe" password="bf403351dfb2ae819874163aff25a49c" 
+					authorities="ROLE_USER, ROLE_APPLE_USER" />
+				<security:user name="pete" password="5d2ea1f70185e4357183bb9c00187219" 
+					authorities="ROLE_USER, ROLE_ANDROID_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>	
+
+</beans>

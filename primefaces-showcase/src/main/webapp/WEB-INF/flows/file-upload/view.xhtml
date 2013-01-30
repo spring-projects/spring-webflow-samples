@@ -1,0 +1,28 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Ajax With PrimeFaces CommandButton</ui:define>
+
+<ui:define name="notes">
+	<h5>Files to review:</h5>
+	<p>
+	  	Flow definition and view.xhtml in <span class="alt">src/main/webapp/WEB-INF/flows/ajax-primefaces</span><br/>
+	  	Java class <span class="alt">~/upload/FileUploadController.java</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+<h:form enctype="multipart/form-data">
+	<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+		allowTypes="/(\.|\/)(gif|jpe?g|png)$/" description="Images"/>
+    <p:commandButton value="Exit" action="exit" />   
+</h:form>
+</ui:define>
+
+</ui:composition>

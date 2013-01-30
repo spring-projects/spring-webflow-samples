@@ -1,0 +1,127 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title"></ui:define>
+
+<ui:define name="notes">
+	<p>
+		Note that in "development" mode you can make changes to flow definitions without the 
+		need to restart the server. The development mode is specified in 
+		<span class="alt">src/main/webapp/WEB-INF/spring/appServlet/webflow.xml</span>.
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+
+	<p:tabView activeIndex="${param.tab}">
+
+		<p:tab title="Ajax 101">
+			<ul>
+				<li>
+					<h:outputLink value="ajax-jsf?tab=0" >
+						<h:outputText value="JSF 2 commandButton with f:ajax" />
+					</h:outputLink><br/>
+					<span class="alt">Ajax request and responses with h:commandButton + nested f:ajax tag.</span>
+				</li>
+				<li>
+					<h:outputLink value="ajax-primefaces?tab=0" >
+						<h:outputText value="PrimeFaces commandButton" />
+					</h:outputLink><br/>
+					<span class="alt">Ajax request and response with the PrimeFaces commandButton.</span> 
+				</li>
+				<li>
+					<h:outputLink value="ajax-render-action?tab=0" >
+						<h:outputText value="Web Flow render action" />
+					</h:outputLink><br/>
+					<span class="alt">Integration between the Web Flow render action and PrimeFaces partial rendering.</span> 
+				</li>
+			</ul>
+		</p:tab>
+
+		<p:tab title="Advanced Ajax">
+			<ul>
+				<li>
+					<h:outputLink value="autocomplete?tab=1" >
+						<h:outputText value="Auto-complete" />
+					</h:outputLink><br/>
+					<span class="alt">PrimeFaces Auto-complete component.</span> 
+				</li>
+				<li>
+					<h:outputLink value="modal-dialog-in-view?tab=1" >
+						<h:outputText value="Modal Dialog In View" />
+					</h:outputLink><br/>
+					<span class="alt">Display a modal dialog without leaving the current view state.</span> 
+				</li>
+				<li>
+					<h:outputLink value="top-flow-with-embedded-subflow?tab=1" >
+						<h:outputText value="Top Flow with Embedded Sub-Flow" />
+					</h:outputLink><br/>
+					<span class="alt">Top flow with a sub-flow embedded within it without causing any redirects or a full page refresh.</span> 
+				</li>
+				<li>
+					<h:outputLink value="poller?tab=1" >
+						<h:outputText value="Polling" />
+					</h:outputLink><br/>
+					<span class="alt">Shows PrimeFaces poller component accesses server-side Web Flow data.</span> 
+				</li>
+			</ul>
+		</p:tab>
+
+		<p:tab title="Validation">
+			<ul>
+				<li>
+					<h:outputLink value="validation-bean?tab=2" >
+						<h:outputText value="Bean Validation" />
+					</h:outputLink><br/>
+					<span class="alt">JSR-303 Bean Validation Annotations.</span> 
+				</li>
+				<li>
+					<h:outputLink value="validation-model?tab=2" >
+						<h:outputText value="Model Validation" />
+					</h:outputLink><br/>
+					<span class="alt">Web Flow specific mechanism with validation methods in the model object.</span> 
+				</li>
+			</ul>
+		</p:tab>
+
+		<p:tab title="Miscellaneous">
+			<h5>Comments: </h5>
+			<ul>
+				<li>
+					<h:outputLink value="spring-security-taglib?tab=3" >
+						<h:outputText value="Spring Security Facelets Tag Library" />
+					</h:outputLink><br/>
+					<span class="alt">Demonstrates use of the Spring Security Facelets tag library.</span>
+					<p class="notice">
+						The above flow definition is protected with Spring Security.
+						You'll be redirected to a login page the first time. 
+					</p> 
+				</li>
+				<li>
+					<h:outputLink value="file-upload?tab=3" >
+						<h:outputText value="File Upload" />
+					</h:outputLink><br/>
+					<span class="alt">Uses the PrimeFaces fileUpload component to demonstratie uploading a file.</span> 
+				</li>
+			</ul>
+		</p:tab>
+
+		<!-- 
+			popup with form validation
+			popup with multiple state transitions
+			breadcrumb(http://forum.springsource.org/showthread.php?t=94207)
+			custom jsf component
+			jpa persistence
+			file upload
+		 -->
+		
+	</p:tabView>
+
+</ui:define>
+</ui:composition>

@@ -1,0 +1,57 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Top Flow Container</ui:define>
+
+<ui:define name="notes">
+	<p>
+		This is the landing page for the top flow. From her you can launch the embedded sub-flow 
+		without ever causing this part of the page to be reloaded. 
+	</p>
+	<ul>
+		<li>
+		Note the mode=embedded input attribute passed to the sub-flow in
+		<span class="alt">src/main/webapp/WEB-INF/flows/top-flow-with-embedded-subflow/flow.xml</span>.
+		This instructs the subflow to launch in embedded mode and avoid flow execution redirects
+		during Ajax requests. 
+		</li>
+		<li>	
+		Also notice the identical form ids used on all three view pages. 
+		This is required in order for the client-side JSF JavaScript to replace the form contents.
+		</li>
+	</ul>
+</ui:define>
+
+<ui:define name="content">
+	<hr/>
+	<div class="span-4 colborder">
+		<h6>Some text to the left</h6>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+		nisi ut aliquip.</p>
+	</div>
+	<div class="span-12 colborder">
+		<h3>Embedded Sub-Flow Area</h3>
+		<h:form id="mainForm">
+			<p:messages/>
+			<p>
+				<p:commandButton value="Start Sub-Flow" action="start" update="mainForm"/>&nbsp;
+				<p:commandButton value="Exit" action="exit" immediate="true" />
+			</p>
+		</h:form>
+	</div>
+	<div class="span-4 last">
+		<h6>Some text to the right</h6>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+		nisi ut aliquip.</p>			
+	</div>
+	<hr/>
+</ui:define>
+
+</ui:composition>

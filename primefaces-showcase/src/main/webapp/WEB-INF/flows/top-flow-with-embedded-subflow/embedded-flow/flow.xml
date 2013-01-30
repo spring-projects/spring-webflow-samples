@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd"
+	parent="parent-flow">
+
+	<!--
+		Also see ../parent-flow.xml. 
+	-->
+	
+	<var name="userBean" class="org.springframework.samples.webflow.ajax.UserBean" />
+
+	<view-state id="main">
+		<transition on="suggest" to="confirmation">
+			<set name="flashScope.emailSuggestion" value="userBean.createEmailSuggestion(flowRequestContext)" />
+		</transition>
+	</view-state>
+
+	<view-state id="confirmation">
+		<transition on="edit" to="main"/>
+	</view-state>
+
+</flow>

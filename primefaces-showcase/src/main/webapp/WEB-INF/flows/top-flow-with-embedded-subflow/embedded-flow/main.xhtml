@@ -1,0 +1,34 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Embedded Flow: User Details</ui:define>
+
+<ui:define name="notes">
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+	<h:form id="mainForm">
+		<p:messages />
+		<p>
+			<h:outputLabel for="firstName">First Name: </h:outputLabel><br/>
+			<h:inputText id="firstName" value="#{userBean.firstName}" />
+		</p>
+		<p>
+			<h:outputLabel for="lastName">Last Name: </h:outputLabel><br/>
+			<h:inputText id="lastName" value="#{userBean.lastName}" />
+		</p>
+		<p>
+			<p:commandButton value="Suggest" action="suggest" update="mainForm"/>&nbsp;
+			<p:commandButton value="Exit" action="exit" update="mainForm"/>
+		</p>
+		<hr/>
+	</h:form>
+</ui:define>
+
+</ui:composition>

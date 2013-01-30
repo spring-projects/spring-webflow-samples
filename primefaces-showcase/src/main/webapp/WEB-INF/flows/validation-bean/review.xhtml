@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Standard JSR-303 Bean Validation</ui:define>
+
+<ui:define name="notes">
+	<h5>Files to review:</h5>
+	<p>
+	  	Flow definition and view.xhtml in <span class="alt">src/main/webapp/WEB-INF/flows/bean-validation</span><br/>
+	  	Java class with JSR-303 validation annotations <span class="alt">~/validation/Account.java</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+<h:form>
+	<p:fieldset legend="Review Account Changes">
+		<p:messages />  
+		<p>
+			<h:outputLabel for="firstName">First Name: </h:outputLabel><br/>
+			<h:outputText id="firstName" value="#{account.firstName}" />
+		</p>
+		<p>
+			<h:outputLabel for="lastName">Last Name: </h:outputLabel><br/>
+			<h:outputText id="lastName" value="#{account.lastName}" />
+		</p>
+		<p>
+			<h:outputLabel for="dateOfBirth">Date of Birth: </h:outputLabel><br/>
+			<h:outputText id="dateOfBirth" value="#{account.dateOfBirth}" />
+		</p>
+		<p>
+			<p:commandButton value="&lt;&lt; Back" action="back"/>&nbsp;
+			<p:commandButton value="Exit" action="exit" immediate="true" />
+		</p>
+		<hr/>
+	</p:fieldset>
+</h:form>
+</ui:define>
+
+</ui:composition>

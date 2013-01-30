@@ -1,0 +1,40 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Modal Dialog In View</ui:define>
+
+<ui:define name="notes">
+	<h5>Comments:</h5>
+	<p>
+	  	Flow definition and view.xhtml in src/main/webapp/WEB-INF/flows/modal-dialog-in-view<br/>
+	  	Java class ~/modal/ModalAction.java
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+	<h:form id="mainForm">
+		<p:messages id="messages" /> 
+		<p:menu style="width:250px">
+			<p:submenu label="Select your favorite phone">
+				<p:menuitem value="Android" action="android" update="confirmContent" oncomplete="confirmDialog.show()" />
+				<p:menuitem value="BlackBerry" action="blackberry" update="confirmContent" oncomplete="confirmDialog.show()" />
+				<p:menuitem value="iPhone" action="iphone" update="confirmContent" oncomplete="confirmDialog.show()" />
+			</p:submenu>
+		</p:menu>
+		<p:dialog widgetVar="confirmDialog" header="Confirmation" modal="true" width="300">
+			<p:outputPanel id="confirmContent">
+				<p><h:outputText value="Is ${selectedPhone} you favorite phone?" /></p>
+			    <p:commandButton value="Yes" action="confirm" update="messages" oncomplete="confirmDialog.hide()" />
+			    <p:commandButton value="No" action="cancel" update="messages" oncomplete="confirmDialog.hide()" />   
+			</p:outputPanel>
+		</p:dialog>
+	    <p:commandButton value="Exit" action="exit" />   
+	</h:form>
+</ui:define>
+
+</ui:composition>

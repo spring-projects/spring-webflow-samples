@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Auto-complete</ui:define>
+
+<ui:define name="notes">
+	<h5>Comments:</h5>
+	<p>
+	  	Flow artifacts in <span class="alt">src/main/webapp/WEB-INF/flows/autocomplete</span><br/>
+	  	Java classes in package <span class="alt">~/autocomplate</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+<h:form>
+	<p:messages />
+	<div>
+		<h:outputLabel value="Suggest a name (type anything): " for="stringValue" /><br/>
+		<p:autoComplete id="stringValue" value="#{formBean.value}" completeMethod="#{personService.suggestNames}" />
+	</div>
+	<div>
+		<h:outputLabel value="Person (type 'J'): " for="person" /><br/>
+		<p:autoComplete id="person" value="#{formBean.person}" completeMethod="#{personService.suggestPeople}" 
+			var="selectedPerson" itemLabel="#{selectedPerson.name}" itemValue="#{selectedPerson}" converter="personConverter"/>
+	</div>
+	<h:panelGroup layout="block" styleClass="success" rendered="${formBean.value != null or formBean.person != null}">
+		<p>String Value: ${formBean.value}</p> 
+		<p>Person: ${formBean.person.name}</p> 
+	</h:panelGroup>
+	<br/>
+	<p>
+		<p:commandButton value="Suggest" update="@form"/>&nbsp;
+		<p:commandButton value="Exit" action="exit" immediate="true" /><br/>
+	</p>
+</h:form>
+
+</ui:define>
+
+</ui:composition>
