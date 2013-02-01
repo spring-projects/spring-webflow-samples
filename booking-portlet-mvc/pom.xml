@@ -10,15 +10,15 @@
 
 	<properties>
 		<springframework-version>3.2.1.RELEASE</springframework-version>
-		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
+		<webflow-version>2.4.0.M1</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
 	</properties>
 
 	<repositories>
 		<repository>
 			<id>spring-repository</id>
-			<name>Spring project snapshots, milestones, and releases</name>
-			<url>http://repo.springsource.org/snapshot</url>
+			<name>SpringSource Repository</name>
+			<url>http://repo.springsource.org/milestone</url>
 		</repository>
 	</repositories>
 
