@@ -22,17 +22,16 @@
 	<mvc:view-controller path="/" view-name="intro" />
 	<mvc:view-controller path="/login" />
 	<mvc:view-controller path="/logoutSuccess" />
-	
+
 	<!-- Dispatches requests mapped to flows to FlowHandler implementations -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor"/>
+		<property name="saveOutputToFlashScopeOnRedirect" value="true"/>
 	</bean>
 
 	<!-- Custom FlowHandler for the hotel booking flow -->
 	<bean name="hotels/booking" class="org.springframework.webflow.samples.booking.BookingFlowHandler" />	
 		
-  
-
 	<!-- Thymeleaf template resolver -->
 	<bean id="templateResolver"
 		  class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
@@ -40,7 +39,6 @@
 		<property name="templateMode" value="HTML5" />
 	</bean>
 
-	
 	<!-- Thymeleaf Template Engine -->
     <bean id="templateEngine"
           class="org.thymeleaf.spring3.SpringTemplateEngine">
@@ -54,13 +52,11 @@
         </property>
     </bean>
 
-    
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<bean id="tilesViewResolver" class="org.thymeleaf.spring3.view.AjaxThymeleafViewResolver">
 		<property name="viewClass" value="org.thymeleaf.extras.tiles2.spring.web.view.FlowAjaxThymeleafTilesView"/>
 		<property name="templateEngine" ref="templateEngine"/>
 	</bean>
-
   
 	<!-- Configures the Tiles layout system using a specific thymeleaf-enabled Tiles Configurer -->
 	<bean id="tilesConfigurer" class="org.thymeleaf.extras.tiles2.spring.web.configurer.ThymeleafTilesConfigurer">
@@ -71,5 +67,4 @@
 		</property>
 	</bean>
   	
-  
 </beans>

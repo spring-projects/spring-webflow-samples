@@ -1,0 +1,124 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:p="http://primefaces.org/ui"
+	  			xmlns:sec="http://www.springframework.org/security/tags"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Spring Security Facelets Tag Library</ui:define>
+
+<ui:define name="notes">
+	<h5>Files to review:</h5>
+	<p>
+  		Flow definition and view.xhtml in 
+  		<span class="alt">src/main/webapp/WEB-INF/flows/spring-security-taglib</span><br/>
+  		Taglib declaration in <span class="alt">web.xml</span><br/>
+  		Taglib file <span class="alt">src/main/webapp/WEB-INF/springsecurity.taglib.xml</span><br/>
+  		Spring security configuation <span class="alt">src/main/webapp/WEB-INF/spring/security-config.xml</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+	<p class="alt">
+    	You're currently logged in as '${currentUser.name}'
+	</p>
+
+	<p class="prepend-top">
+		<span class="alt">&lt;sec:authorize ifAllGranted="ROLE_USER, ROLE_APPLE_USER"&gt;</span>	
+		<sec:authorize ifAllGranted="ROLE_USER, ROLE_APPLE_USER">
+			Lorem ipsum dolor sit amet
+		</sec:authorize>
+		...
+		<span class="alt">&lt;/sec:authorize&gt;</span>	
+	</p>
+
+	<p>
+		<span class="alt">&lt;sec:authorize ifAllGranted="ROLE_USER, ROLE_ANDROID_USER"&gt;</span>	
+		<sec:authorize ifAllGranted="ROLE_USER, ROLE_ANDROID_USER">
+			Lorem ipsum dolor sit amet
+		</sec:authorize>
+		...
+		<span class="alt">&lt;/sec:authorize&gt;</span>	
+	</p>
+
+	<p>
+		<span class="alt">&lt;sec:authorize ifNotGranted="ROLE_APPLE_USER"&gt;</span>	
+		<sec:authorize ifNotGranted="ROLE_APPLE_USER">
+			Lorem ipsum dolor sit amet
+		</sec:authorize>
+		...
+		<span class="alt">&lt;/sec:authorize&gt;</span>	
+	</p>
+
+	<p>
+		<span class="alt">&lt;sec:authorize ifNotGranted="ROLE_ANDROID_USER"&gt;</span>	
+		<sec:authorize ifNotGranted="ROLE_ANDROID_USER">
+			Lorem ipsum dolor sit amet
+		</sec:authorize>
+		...
+		<span class="alt">&lt;/sec:authorize&gt;</span>	
+	</p>
+
+	<p>
+		<span class="alt">&lt;sec:authorize ifAnyGranted="ROLE_APPLE_USER, ROLE_ANDROID_USER"&gt;</span>	
+		<sec:authorize ifAnyGranted="ROLE_APPLE_USER, ROLE_ANDROID_USER">
+			Lorem ipsum dolor sit amet
+		</sec:authorize>
+		...
+		<span class="alt">&lt;/sec:authorize&gt;</span>	
+	</p>
+
+	<p class="prepend-top">
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:areAllGranted('ROLE_USER, ROLE_APPLE_USER')}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areAllGranted('ROLE_USER, ROLE_APPLE_USER')}"/>	
+		...
+	</p>
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:areAllGranted('ROLE_USER, ROLE_ANDROID_USER')}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areAllGranted('ROLE_USER, ROLE_ANDROID_USER')}"/>	
+		...
+	</p>
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:areNotGranted('ROLE_APPLE_USER')}"  /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areNotGranted('ROLE_APPLE_USER')}"/>	
+		...
+	</p>
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:areNotGranted('ROLE_ANDROID_USER')}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areNotGranted('ROLE_ANDROID_USER')}"/>	
+		...
+	</p>
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:areAnyGranted('ROLE_APPLE_USER, ROLE_ANDROID_USER')}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areAnyGranted('ROLE_APPLE_USER, ROLE_ANDROID_USER')}"/>	
+		...
+	</p>
+
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:isAllowed('/secured/appleUser', 'POST'}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:isAllowed('/secured/appleUser', 'POST')}"/>	
+		...
+	</p>
+
+	<p>
+		<span class="alt">&lt;h:outputText ... rendered="\#{sec:isAllowed('/secured/androidUser', 'POST'}" /&gt; </span>	
+		<h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:isAllowed('/secured/androidUser', 'POST')}"/>	
+		...
+	</p>
+	
+	<h:form>
+	    <p:commandButton value="Logout" action="logout"/>
+	    <p:commandButton value="Exit" action="exit"/>   
+	</h:form>
+
+</ui:define>
+
+</ui:composition>

@@ -9,16 +9,16 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>3.2.0.RELEASE</springframework-version>
-		<webflow-version>2.3.1.RELEASE</webflow-version>
+		<springframework-version>3.2.1.RELEASE</springframework-version>
+		<webflow-version>2.4.0.M1</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
 	</properties>
 
 	<repositories>
 		<repository>
 			<id>spring-repository</id>
-			<name>Spring project snapshots, milestones, and releases</name>
-			<url>http://repo.springsource.org/snapshot</url>
+			<name>SpringSource Repository</name>
+			<url>http://repo.springsource.org/milestone</url>
 		</repository>
 	</repositories>
 
@@ -28,13 +28,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${springframework-version}</version>
-			<exclusions>
-				<!-- Exclude Commons Logging in favor of SLF4j -->
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				 </exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>

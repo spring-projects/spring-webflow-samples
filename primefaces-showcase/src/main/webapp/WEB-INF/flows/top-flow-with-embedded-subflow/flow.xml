@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd"
+	parent="parent-flow">
+
+	<!--
+		Also see ../parent-flow.xml. 
+	-->
+	
+	<view-state id="main">
+		<transition on="start" to="embedded-flow"/>
+	</view-state>
+
+	<subflow-state id="embedded-flow" subflow="top-flow-with-embedded-subflow/embedded-flow">
+		<input name="mode" value="'embedded'"/>
+		<transition on="end" to="main"/>
+	</subflow-state>
+	
+</flow>

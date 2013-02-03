@@ -1,0 +1,90 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Model Validation</ui:define>
+
+<ui:define name="notes">
+	<h5>Files to review:</h5>
+	<p>
+	  	Flow definition and views in <span class="alt">src/main/webapp/WEB-INF/flows/validation-model</span><br/>
+	  	Java model with validation methods <span class="alt">~/validation/Reservation.java</span>
+	</p>
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+<h:form>
+	<p:tabView activeIndex="${activeTabIndex}">
+
+		<p:tab title="Reservation Form" >
+			<p:messages />  
+			<div>
+				<div class="span-5 colborder">
+					<p>
+						<h:outputLabel for="startDate">Start Date: </h:outputLabel><br/>
+						<p:calendar id="startDate" label="Start Date" value="#{reservation.startDate}" pattern="MM/dd/yyyy" timeZone="EST" required="true" />
+					</p>
+					<p>
+						<h:outputLabel for="endDate">End Date: </h:outputLabel><br/>
+						<p:calendar id="endDate" label="End Date" value="#{reservation.endDate}" pattern="MM/dd/yyyy" timeZone="EST" required="true" />
+					</p>
+					<hr/>
+					<p>
+						<h:selectBooleanCheckbox title="stateValidation" value="#{reservation.stateValidationEnabled}" />
+						Enable state validation<br/>			
+						<h:selectBooleanCheckbox title="globalValidation" value="#{reservation.globalValidationEnabled}" />
+						Enable global validation
+					</p>
+					<hr/>
+					<p>		
+						<p:commandButton value="Validate" action="next" update="@form" render="@form" />
+						<p:commandButton value="Exit" action="exit" immediate="true" />
+					</p>				
+				</div>
+				<div class="span-16 last">
+					<p>Types of validation used on this form:</p>
+					<ol>
+						<li>JSF component validation based on "required" attribute on start/end date tags</li>
+						<li>Model validation method invoked by convention for this state only</li>
+						<li>Model validation method invoked by convention for any view states of the current flow</li>
+						<li>Validation method invoked directly in a transition</li>
+					</ol>
+				</div>
+				<hr/>
+			</div>
+		</p:tab>
+		<p:tab title="By Convention">
+			<p>
+				Validation by convention relies on model methods with a special signature.<br/>
+				First you need to declare the model on the view-state using the "model" attribute.<br/>
+				Then you add one or more validation methods to the model object.<br/>
+				For example see the following methods on <span class="alt">~/validation/Reservation.java</span>:<br/> 
+				<span class="alt">public void 
+				Reservation.validateEdit(ValidationContext)</span> matches to the view state called "edit".<br/>
+				<span class="alt">public void 
+				Reservation.validate(ValidationContext)</span> matches to all view states in the flow.<br/>
+			</p>
+		</p:tab>
+
+		<p:tab title="By Validation Method">
+			<p>
+				You can choose to invoke a validation method during a specific transition.<br/>
+				The validation method registers errors and returns false to prevent the transition
+				and display the error(s).
+			</p>
+			<hr/>
+			<p>
+				Don't forget to disable state and global validation by convention.<br/>
+				Those validations are invoked first and they will prevent the transition altogether!
+			</p>
+		</p:tab>
+	</p:tabView>
+</h:form>
+</ui:define>
+
+</ui:composition>

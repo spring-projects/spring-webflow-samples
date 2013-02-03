@@ -1,0 +1,29 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Embedded Flow: Confirmation</ui:define>
+
+<ui:define name="notes">
+	<hr/>
+</ui:define>
+
+<ui:define name="content">
+	<h:form id="mainForm">
+		<p:messages/>
+		<h:panelGroup layout="block" styleClass="success" rendered="${not empty emailSuggestion}">
+			<h:outputLabel for="email">Email suggestion: </h:outputLabel>
+			<h:outputText id="email" value="${emailSuggestion}"/>
+		</h:panelGroup>
+		<p>
+		    <p:commandButton value="Edit" action="edit" update="mainForm"/>
+		    <p:commandButton value="Exit" action="exit" update="mainForm" />   
+		</p>
+	</h:form>
+</ui:define>
+
+</ui:composition>

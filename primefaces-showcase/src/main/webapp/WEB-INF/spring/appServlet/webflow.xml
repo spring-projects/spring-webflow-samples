@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/webflow-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:faces="http://www.springframework.org/schema/faces"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.4.xsd">
+
+	<!-- Executes flows: the central entry point into the Spring Web Flow system -->
+	<flow-executor id="flowExecutor">
+		<flow-execution-listeners>
+			<listener ref="facesContextListener"/>
+			<listener ref="securityListener"/>
+		</flow-execution-listeners>
+	</flow-executor>
+
+	<!-- The registry of executable flow definitions -->
+	<flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
+		<flow-location-pattern value="/**/flow.xml" />
+		<flow-location id="parent-flow" path="parent-flow.xml"/>
+	</flow-registry>
+
+	<!-- Configures the Spring Web Flow JSF integration -->
+	<faces:flow-builder-services id="flowBuilderServices" development="true" />
+
+	<!-- A listener to create and release a FacesContext -->
+	<beans:bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
+
+	<!-- A listener to apply Spring Security authorities -->
+	<beans:bean id="securityListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
+
+</beans:beans>

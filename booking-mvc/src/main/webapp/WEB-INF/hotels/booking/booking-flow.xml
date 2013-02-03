@@ -43,7 +43,9 @@
 		<transition on="cancel" to="cancel" />
 	</view-state>
 	
-	<end-state id="bookingConfirmed"/>
+	<end-state id="bookingConfirmed">
+		<output name="confirmed" value="'Your booking is confirmed, you can book another hotel by searching again.'"/>
+	</end-state>
 
 	<end-state id="cancel" />
 
