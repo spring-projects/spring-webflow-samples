@@ -10,4 +10,4 @@
 			Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'cancel',event:'onclick',formId:'step2',params:{fragments:"body"}}));
 		</script>
 	</form>
-</h5>
+</div>
