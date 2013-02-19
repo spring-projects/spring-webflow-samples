@@ -13,6 +13,7 @@ bin
 .springBeans
 
 # IDEA metadata and output dirs
+.idea
 *.iml
 *.ipr
 *.iws
