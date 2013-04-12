@@ -18,13 +18,8 @@ mvn tomcat:run
 Eclipse
 =======
 
-Generate Eclipse settings for all samples:
-
-````
-mvn eclipse:clean eclipse:eclipse
-````
-
-Import the projects into Eclipse. The Eclipse preferences must have an `M2_REPO` under "Java", "Build Path", "Classpath Variables".
+Import the projects into Eclipse. 
+File -> Import -> Maven -> Existing Maven Projects
 
 Contributing
 ============
