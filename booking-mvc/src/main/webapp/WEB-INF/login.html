@@ -65,7 +65,9 @@
 
     <div class="error" th:if="${param.login_error}">
         Your login attempt was not successful, try again.<br /><br />
-        Reason: <span th:text="${session[__${lastExceptionKey}__].message}">Invalid password</span> 
+        <span th:if="${session} and ${session[__${lastExceptionKey}__]}">
+            Reason: <span th:text="${session[__${lastExceptionKey}__].message}">Invalid password</span>
+        </span> 
     </div>
     
     <form name="f" action="#" th:action="@{/loginProcess}" method="post">
@@ -78,7 +80,7 @@
                 <label for="j_username">User:</label>
                 <br />
                 <input type="text" name="j_username" id="j_username"
-                       th:value="${param.login_error} ? ${session[__${lastUsernameKey}__]} : ''" />
+                       th:value="(${param.login_error} and ${session}) ? ${session[__${lastUsernameKey}__]} : ''" />
             </p>
             
             <script type="text/javascript">
