@@ -1,6 +1,7 @@
 package org.springframework.webflow.samples.booking;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.faces.model.SelectItem;
