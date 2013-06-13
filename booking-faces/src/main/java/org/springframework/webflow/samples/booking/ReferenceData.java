@@ -61,12 +61,13 @@ public class ReferenceData {
     public List<SelectItem> getCreditCardExpYears() {
 	if (creditCardExpYears == null) {
 	    creditCardExpYears = new ArrayList<SelectItem>();
-	    creditCardExpYears.add(new SelectItem(new Integer(2008), "2008"));
-	    creditCardExpYears.add(new SelectItem(new Integer(2009), "2009"));
-	    creditCardExpYears.add(new SelectItem(new Integer(2010), "2010"));
-	    creditCardExpYears.add(new SelectItem(new Integer(2010), "2011"));
-	    creditCardExpYears.add(new SelectItem(new Integer(2010), "2012"));
-	}
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+	    creditCardExpYears.add(new SelectItem(new Integer(year), String.valueOf(year++)));
+	    creditCardExpYears.add(new SelectItem(new Integer(year), String.valueOf(year++)));
+	    creditCardExpYears.add(new SelectItem(new Integer(year), String.valueOf(year++)));
+	    creditCardExpYears.add(new SelectItem(new Integer(year), String.valueOf(year++)));
+	    creditCardExpYears.add(new SelectItem(new Integer(year), String.valueOf(year++)));	}
 	return creditCardExpYears;
     }
 
