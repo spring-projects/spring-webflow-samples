@@ -18,7 +18,7 @@
 </ui:define>
 <ui:define name="content">
 <h:form>
-	<p:dataTable id="hotels" var="h" value="#{hotels}" paginator="true" dynamic="true"
+	<p:dataTable id="hotels" var="h" value="#{hotels}" paginator="true" lazy="true"
 			rows="#{hotels.pageSize}" page="#{hotels.currentPage}">
         <f:facet name="header">
         	Hotel Search Results<br/>
