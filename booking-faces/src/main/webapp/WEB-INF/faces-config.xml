@@ -8,4 +8,7 @@
 		<message-bundle>JsfMessageResources</message-bundle>
 	</application>
 	    
+	<lifecycle>
+		<phase-listener>org.springframework.webflow.primefaces.Primefaces35PhaseListener</phase-listener>
+	</lifecycle>
 </faces-config>

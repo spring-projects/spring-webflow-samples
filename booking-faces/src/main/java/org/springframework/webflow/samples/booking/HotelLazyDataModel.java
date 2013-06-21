@@ -47,6 +47,7 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	return this.searchCriteria.getCurrentPage();
     }
 
+    @Override
     public int getPageSize() {
 	return this.searchCriteria.getPageSize();
     }
