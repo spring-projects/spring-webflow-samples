@@ -30,7 +30,7 @@ public class UserBean implements Serializable {
 
 		} else {
 			context.getMessageContext().addMessage(
-					new MessageBuilder().error().defaultText("Please enter a first or a last name of both!").build());
+					new MessageBuilder().error().defaultText("Please enter a first or a last name or both!").build());
 			return "";
 		}
 	}
