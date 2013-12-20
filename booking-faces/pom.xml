@@ -9,12 +9,12 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>3.2.1.RELEASE</springframework-version>
+		<springframework-version>4.0.0.RELEASE</springframework-version>
 		<springsecurity-version>3.1.3.RELEASE</springsecurity-version>
-		<webflow-version>2.4.0.M1</webflow-version>
-		<slf4j-version>1.5.10</slf4j-version>
-		<mojarra-version>2.1.7</mojarra-version>
-		<primefaces-version>3.1.1</primefaces-version>
+		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
+		<slf4j-version>1.6.1</slf4j-version>
+		<mojarra-version>2.2.4</mojarra-version>
+		<primefaces-version>4.0</primefaces-version>
 	</properties>
 
 	<repositories>
@@ -29,6 +29,11 @@
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>		
+		<repository>
+			<id>spring-snapshots</id>
+			<name>SpringSource Repository</name>
+			<url>http://repo.springsource.org/snapshot</url>
+		</repository>
 	</repositories>
 
 	<dependencies>

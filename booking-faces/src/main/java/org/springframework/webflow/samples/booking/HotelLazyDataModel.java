@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.springframework.webflow.samples.booking;
 
@@ -11,44 +11,63 @@ import org.primefaces.model.SortOrder;
 
 public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 
-    private static final long serialVersionUID = -8832831134966938627L;
+	private static final long serialVersionUID = -8832831134966938627L;
 
-    SearchCriteria searchCriteria;
+	SearchCriteria searchCriteria;
 
-    BookingService bookingService;
+	BookingService bookingService;
 
-    private Hotel selected;
+	private List<Hotel> hotels;
 
-    public HotelLazyDataModel(SearchCriteria searchCriteria, BookingService bookingService) {
-	this.searchCriteria = searchCriteria;
-	this.bookingService = bookingService;
-    }
+	private Hotel selected;
 
-    @Override
-    public List<Hotel> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
-	searchCriteria.setCurrentPage(first / pageSize + 1);
-	return bookingService.findHotels(searchCriteria, first, sortField, sortOrder.equals(SortOrder.ASCENDING));
-    }
 
-    @Override
-    public int getRowCount() {
-	return bookingService.getNumberOfHotels(searchCriteria);
-    }
+	public HotelLazyDataModel(SearchCriteria searchCriteria, BookingService bookingService) {
+		this.searchCriteria = searchCriteria;
+		this.bookingService = bookingService;
+	}
 
-    public Hotel getSelected() {
-	return selected;
-    }
+	@Override
+	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, String> filters) {
+		this.searchCriteria.setCurrentPage(first / pageSize + 1);
+		this.hotels = bookingService.findHotels(searchCriteria, first, sortField, order.equals(SortOrder.ASCENDING));
+		return hotels;
+	}
 
-    public void setSelected(Hotel selected) {
-	this.selected = selected;
-    }
+	@Override
+	public Hotel getRowData(String rowKey) {
+		for (Hotel hotel : this.hotels){
+			if (hotel.getId().equals(rowKey)) {
+				return hotel;
+			}
+ 		}
+		return null;
+	}
 
-    public int getCurrentPage() {
-	return this.searchCriteria.getCurrentPage();
-    }
+	@Override
+	public Object getRowKey(Hotel hotel) {
+		return hotel.getId();
+	}
 
-    public int getPageSize() {
-	return this.searchCriteria.getPageSize();
-    }
+	@Override
+	public int getRowCount() {
+		return bookingService.getNumberOfHotels(searchCriteria);
+	}
+
+	public Hotel getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Hotel selected) {
+		this.selected = selected;
+	}
+
+	public int getCurrentPage() {
+		return this.searchCriteria.getCurrentPage();
+	}
+
+	public int getPageSize() {
+		return this.searchCriteria.getPageSize();
+	}
 
 }

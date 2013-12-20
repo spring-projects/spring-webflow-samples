@@ -9,57 +9,57 @@ import javax.faces.model.DataModel;
  */
 public class SearchCriteria implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * The user-provided search criteria for finding Hotels.
-     */
-    private String searchString = "";
+	/**
+	 * The user-provided search criteria for finding Hotels.
+	 */
+	private String searchString = "";
 
-    /**
-     * The maximum page size of the Hotel result list
-     */
-    private int pageSize = 5;
+	/**
+	 * The maximum page size of the Hotel result list
+	 */
+	private int pageSize = 5;
 
-    /**
-     * The page the user is currently on.
-     */
-    private int currentPage = 1;
+	/**
+	 * The page the user is currently on.
+	 */
+	private int currentPage = 1;
 
-    /**
-     * Returns a {@link DataModel} based on the search criteria.
-     * @param bookingService the service to use to retrieve hotels.
-     */
-    public DataModel<Hotel> getDataModel(BookingService bookingService) {
-	return new HotelLazyDataModel(this, bookingService);
-    }
+	/**
+	 * Returns a {@link DataModel} based on the search criteria.
+	 * @param bookingService the service to use to retrieve hotels.
+	 */
+	public DataModel<Hotel> getDataModel(BookingService bookingService) {
+		return new HotelLazyDataModel(this, bookingService);
+	}
 
-    public String getSearchString() {
-	return searchString;
-    }
+	public String getSearchString() {
+		return searchString;
+	}
 
-    public void setSearchString(String searchString) {
-	this.searchString = searchString;
-    }
+	public void setSearchString(String searchString) {
+		this.searchString = searchString;
+	}
 
-    public int getPageSize() {
-	return pageSize;
-    }
+	public int getPageSize() {
+		return pageSize;
+	}
 
-    public void setPageSize(int pageSize) {
-	this.pageSize = pageSize;
-    }
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 
-    public int getCurrentPage() {
-	return currentPage;
-    }
+	public int getCurrentPage() {
+		return currentPage;
+	}
 
-    public void setCurrentPage(int currentPage) {
-	this.currentPage = currentPage;
-    }
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
 
-    public String toString() {
-	return "[Search Criteria searchString = '" + searchString + "'";
-    }
+	public String toString() {
+		return "[Search Criteria searchString = '" + searchString + "'";
+	}
 
 }
