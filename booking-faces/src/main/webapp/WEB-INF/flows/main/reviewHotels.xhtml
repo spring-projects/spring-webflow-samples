@@ -19,7 +19,7 @@
 <ui:define name="content">
 <h:form>
 	<p:dataTable id="hotels" var="h" value="#{hotels}" paginator="true" dynamic="true"
-			rows="#{hotels.pageSize}" page="#{hotels.currentPage}">
+			rows="#{hotels.pageSize}" page="#{hotels.currentPage}" lazy="true">
         <f:facet name="header">
         	Hotel Search Results<br/>
         	<p:commandLink value="Modify or start search again" action="changeSearch" styleClass="alt" />
