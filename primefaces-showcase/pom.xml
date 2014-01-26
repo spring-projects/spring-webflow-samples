@@ -9,10 +9,10 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 
 	<properties>
-		<java-version>1.5</java-version>
-		<springframework-version>3.2.1.RELEASE</springframework-version>
-		<springwebflow-version>2.4.0.M1</springwebflow-version>
-		<springsecurity-version>3.1.3.RELEASE</springsecurity-version>
+		<java-version>1.6</java-version>
+		<springframework-version>4.0.0.RELEASE</springframework-version>
+		<springwebflow-version>2.3.3.RELEASE</springwebflow-version>
+		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 	</properties>
 
@@ -37,6 +37,21 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-binding</artifactId>
+			<version>${springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-js</artifactId>
+			<version>${springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${springwebflow-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
