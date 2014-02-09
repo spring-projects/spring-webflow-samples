@@ -10,8 +10,14 @@
 	<webflow:flow-executor id="flowExecutor">
 		<webflow:flow-execution-listeners>
 			<webflow:listener ref="securityFlowExecutionListener" />
+			<webflow:listener ref="hibernateFlowExecutionListener" />
 		</webflow:flow-execution-listeners>
 	</webflow:flow-executor>
+
+	<bean id="hibernateFlowExecutionListener" class="org.springframework.webflow.persistence.HibernateFlowExecutionListener">
+		<constructor-arg ref="sessionFactory" />
+		<constructor-arg ref="transactionManager" />
+	</bean>
 	
 	<!-- The registry of executable flow definitions -->
 	<webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF">

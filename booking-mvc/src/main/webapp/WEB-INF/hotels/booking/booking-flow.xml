@@ -7,6 +7,8 @@
 
 	<secured attributes="ROLE_USER" />
 
+	<persistence-context />
+
 	<input name="hotelId" required="true" />
 
 	<on-start>
@@ -43,10 +45,10 @@
 		<transition on="cancel" to="cancel" />
 	</view-state>
 	
-	<end-state id="bookingConfirmed">
+	<end-state id="bookingConfirmed" commit="true">
 		<output name="confirmed" value="'Your booking is confirmed, you can book another hotel by searching again.'"/>
 	</end-state>
 
-	<end-state id="cancel" />
+	<end-state id="cancel" commit="false"/>
 
 </flow>

@@ -15,8 +15,8 @@ import org.springframework.util.StringUtils;
  * against the backing repository. The EntityManager reference is provided by the managing container (Spring)
  * automatically.
  */
-@Service("bookingService")
-@Repository
+//@Service("bookingService")
+//@Repository
 public class JpaBookingService implements BookingService {
 
     private EntityManager em;

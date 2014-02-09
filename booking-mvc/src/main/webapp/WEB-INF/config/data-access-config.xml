@@ -9,20 +9,32 @@
 	<!-- Instructs Spring to perfrom declarative transaction management on annotated classes -->
 	<tx:annotation-driven />
 
-	<!-- Drives transactions using local JPA APIs -->
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	<!--
+		Hibernate 3: org.springframework.orm.hibernate3.HibernateTransactionManager
+		Hibernate 4: org.springframework.orm.hibernate4.HibernateTransactionManager
+	 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-		
-	<!-- Creates a EntityManagerFactory for use with the Hibernate JPA provider and a simple in-memory data source populated with test data -->
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+	<!--
+		Hibernate 3: org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean
+		Hibernate 4: org.springframework.orm.hibernate4.LocalSessionFactoryBean
+	 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		<property name="annotatedClasses">
+			<list>
+		      <value>org.springframework.webflow.samples.booking.User</value>
+		      <value>org.springframework.webflow.samples.booking.Booking</value>
+		      <value>org.springframework.webflow.samples.booking.Hotel</value>
+			</list>
 		</property>
-		<property name="jpaProperties">
+		<property name="hibernateProperties">
 			<value>
-				hibernate.session_factory_name=mySessionFactory
+				hibernate.dialect=org.hibernate.dialect.HSQLDialect
+				hibernate.hbm2ddl.auto=create-drop
+				hibernate.show_sql=true
 			</value>
 		</property>
 	</bean>
