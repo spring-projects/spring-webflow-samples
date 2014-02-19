@@ -9,7 +9,6 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>4.0.0.RELEASE</springframework-version>
 		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
 		<webflow-version>2.3.3.RELEASE</webflow-version>
 		<slf4j-version>1.6.1</slf4j-version>
@@ -36,32 +35,39 @@
 		</repository>
 	</repositories>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>4.0.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>${springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${springframework-version}</version>
 		</dependency>				
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>${springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
@@ -186,7 +192,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
