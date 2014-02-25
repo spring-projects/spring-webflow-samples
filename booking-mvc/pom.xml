@@ -10,7 +10,7 @@
 
 	<properties>
 		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
-		<webflow-version>2.3.3.RELEASE</webflow-version>
+		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.7.5</slf4j-version>
 		<thymeleaf-version>2.0.15</thymeleaf-version>
 		<thymeleaf-extras-tiles2-version>2.0.0</thymeleaf-extras-tiles2-version>

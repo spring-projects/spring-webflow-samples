@@ -4,15 +4,16 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
-	<!-- The master configuration file for this Spring web application -->
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/config/web-application-config.xml
-		</param-value>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
 
-	<!-- Loads the Spring web application context -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>org.springframework.webflow.samples.booking.config</param-value>
+	</context-param>
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
