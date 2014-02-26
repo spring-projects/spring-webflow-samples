@@ -18,10 +18,10 @@ import org.thymeleaf.dialect.IDialect;
 import org.thymeleaf.extras.conditionalcomments.dialect.ConditionalCommentsDialect;
 import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.extras.tiles2.dialect.TilesDialect;
-import org.thymeleaf.extras.tiles2.spring.web.configurer.ThymeleafTilesConfigurer;
-import org.thymeleaf.extras.tiles2.spring.web.view.FlowAjaxThymeleafTilesView;
-import org.thymeleaf.spring3.SpringTemplateEngine;
-import org.thymeleaf.spring3.view.AjaxThymeleafViewResolver;
+import org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer;
+import org.thymeleaf.extras.tiles2.spring4.web.view.FlowAjaxThymeleafTilesView;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.AjaxThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @EnableWebMvc

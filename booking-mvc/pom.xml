@@ -12,10 +12,10 @@
 		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
 		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.7.5</slf4j-version>
-		<thymeleaf-version>2.0.15</thymeleaf-version>
-		<thymeleaf-extras-tiles2-version>2.0.0</thymeleaf-extras-tiles2-version>
-		<thymeleaf-extras-springsecurity3-version>2.0.0</thymeleaf-extras-springsecurity3-version>
-		<thymeleaf-extras-conditionalcomments-version>2.0.0</thymeleaf-extras-conditionalcomments-version>
+		<thymeleaf-version>2.1.2.RELEASE</thymeleaf-version>
+		<thymeleaf-extras-tiles2-version>2.1.1.RELEASE</thymeleaf-extras-tiles2-version>
+		<thymeleaf-extras-springsecurity3-version>2.1.1.RELEASE</thymeleaf-extras-springsecurity3-version>
+		<thymeleaf-extras-conditionalcomments-version>2.1.0.RELEASE</thymeleaf-extras-conditionalcomments-version>
 		<tiles-version>2.2.2</tiles-version>
 	</properties>
 
@@ -54,12 +54,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring3</artifactId>
+			<artifactId>thymeleaf-spring4</artifactId>
 			<version>${thymeleaf-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-tiles2</artifactId>
+			<artifactId>thymeleaf-extras-tiles2-spring4</artifactId>
 			<version>${thymeleaf-extras-tiles2-version}</version>
 		</dependency>
 		<dependency>
