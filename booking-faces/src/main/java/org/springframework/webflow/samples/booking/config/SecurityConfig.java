@@ -14,6 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
 		http
 			.formLogin()
 				.loginPage("/spring/login")
@@ -25,10 +26,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutUrl("/spring/logout")
 				.logoutSuccessUrl("/spring/logoutSuccess")
 				.and()
+
+			// Disable CSRF (won't work with JSF) but ensure last HTTP POST request is saved
+			// See https://jira.springsource.org/browse/SEC-2498
+
+			.csrf().disable()
 			.requestCache()
-				.requestCache(new HttpSessionRequestCache())
-				.and()
-			.csrf().disable();
+				.requestCache(new HttpSessionRequestCache());
+
 	}
 
 	@Override
