@@ -4,12 +4,14 @@ import javax.faces.webapp.FacesServlet;
 import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration.Dynamic;
+import javax.servlet.ServletRegistration;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer {
+import com.sun.faces.config.ConfigureListener;
+
+public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -43,10 +45,7 @@ public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispa
 		// Declare Spring Security Facelets tag library
 		servletContext.setInitParameter("javax.faces.FACELETS_LIBRARIES", "/WEB-INF/springsecurity.taglib.xml");
 
-		// Add this so the JSF implementation can initialize, *not* used for request processing
-		Dynamic facesServlet = servletContext.addServlet("facesServlet", new FacesServlet());
-		facesServlet.addMapping("*.faces");
-		facesServlet.setLoadOnStartup(0);
+		servletContext.addListener(ConfigureListener.class);
 
 		// Let the DispatcherServlet be registered
 		super.onStartup(servletContext);
