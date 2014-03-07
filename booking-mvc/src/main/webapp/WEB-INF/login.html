@@ -77,31 +77,31 @@
             <legend>Login Information</legend>
             
             <p>
-                <label for="j_username">User:</label>
+                <label for="username">User:</label>
                 <br />
-                <input type="text" name="j_username" id="j_username"
+                <input type="text" name="username" id="username"
                        th:value="(${param.login_error} and ${session}) ? ${session[__${lastUsernameKey}__]} : ''" />
             </p>
             
             <script type="text/javascript">
                 // <![CDATA[
                     Spring.addDecoration(new Spring.ElementDecoration({
-                        elementId : "j_username",
+                        elementId : "username",
                         widgetType : "dijit.form.ValidationTextBox",
                         widgetAttrs : { required : true }}));
                 // ]]>
             </script>
             
             <p>
-                <label for="j_password">Password:</label>
+                <label for="password">Password:</label>
                 <br />
-                <input type="password" name="j_password" id="j_password" />
+                <input type="password" name="password" id="password" />
             </p>
             
             <script type="text/javascript">
                 // <![CDATA[
                     Spring.addDecoration(new Spring.ElementDecoration({
-                        elementId : "j_password",
+                        elementId : "password",
                         widgetType : "dijit.form.ValidationTextBox",
                         widgetAttrs : { required : true}}));
                 // ]]>

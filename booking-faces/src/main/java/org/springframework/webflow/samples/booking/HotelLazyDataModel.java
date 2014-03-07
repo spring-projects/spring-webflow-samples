@@ -8,23 +8,28 @@ import java.util.Map;
 
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 
 	private static final long serialVersionUID = -8832831134966938627L;
 
-	SearchCriteria searchCriteria;
+	private SearchCriteria searchCriteria;
 
-	BookingService bookingService;
+	private BookingService bookingService;
 
 	private List<Hotel> hotels;
 
 	private Hotel selected;
 
 
-	public HotelLazyDataModel(SearchCriteria searchCriteria, BookingService bookingService) {
-		this.searchCriteria = searchCriteria;
+	@Autowired
+	public void setBookingService(BookingService bookingService) {
 		this.bookingService = bookingService;
+	}
+
+	public void setSearchCriteria(SearchCriteria searchCriteria) {
+		this.searchCriteria = searchCriteria;
 	}
 
 	@Override

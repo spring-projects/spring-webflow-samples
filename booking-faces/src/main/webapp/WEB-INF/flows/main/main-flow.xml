@@ -4,12 +4,13 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/webflow
 		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
-	
-	<var name="searchCriteria" class="org.springframework.webflow.samples.booking.SearchCriteria" />
+
+	<var name="searchCriteria" class="org.springframework.webflow.samples.booking.SearchCriteria"/>
 	
 	<view-state id="enterSearchCriteria">
 		<on-render>
-			<evaluate expression="bookingService.findBookings(currentUser?.name)" result="viewScope.bookings" result-type="dataModel" />
+			<evaluate expression="bookingService.findBookings(currentUser?.name)"
+				result="viewScope.bookings" result-type="dataModel" />
 		</on-render>
 		<transition on="search" to="reviewHotels"/>
 		<transition on="cancelBooking">
@@ -18,9 +19,10 @@
 	</view-state>
 	
 	<view-state id="reviewHotels">
-		<on-entry>
-			<set name="viewScope.hotels" value="searchCriteria.getDataModel(bookingService)" />
-		</on-entry>
+		<var name="hotels" class="org.springframework.webflow.samples.booking.HotelLazyDataModel"/>
+		<on-render>
+			<evaluate expression="hotels.setSearchCriteria(searchCriteria)" />
+		</on-render>
 		<transition on="select" to="reviewHotel">
 			<set name="flowScope.hotel" value="hotels.selected" />
 		</transition>

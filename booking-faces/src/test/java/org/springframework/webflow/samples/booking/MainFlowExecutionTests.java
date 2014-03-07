@@ -78,7 +78,7 @@ public class MainFlowExecutionTests extends AbstractXmlFlowExecutionTests {
 	hotel.setId(1L);
 	hotel.setName("Jameson Inn");
 	hotels.add(hotel);
-	HotelLazyDataModel dataModel = new HotelLazyDataModel(null, null);
+	HotelLazyDataModel dataModel = new HotelLazyDataModel();
 	dataModel.setSelected(hotel);
 	getViewScope().put("hotels", dataModel);
 
