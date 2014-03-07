@@ -9,7 +9,7 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>3.2.1.RELEASE</springframework-version>
+		<springframework-version>3.2.8.RELEASE</springframework-version>
 		<springsecurity-version>3.1.3.RELEASE</springsecurity-version>
 		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
@@ -62,14 +62,13 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>${springsecurity-version}</version>
 			<exclusions>
-				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework</groupId>
-					<artifactId>*</artifactId>
+					<artifactId>spring-aop</artifactId>
 				 </exclusion>
 			</exclusions>
 		</dependency>
@@ -80,7 +79,7 @@
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
-					<artifactId>*</artifactId>
+					<artifactId>spring-aop</artifactId>
 				 </exclusion>
 			</exclusions>
 		</dependency>
@@ -89,14 +88,13 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${springsecurity-version}</version>
 			<exclusions>
-				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework</groupId>
-					<artifactId>*</artifactId>
+					<artifactId>spring-aop</artifactId>
 				 </exclusion>
 			</exclusions>						
         </dependency>	
@@ -171,19 +169,20 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
 		<!-- Apache Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
-			<version>2.1.3</version>
+			<version>3.0.1</version>
 			<exclusions>
-				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging-api</artifactId>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
 				 </exclusion>
 			</exclusions>			
 		</dependency>
+
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
