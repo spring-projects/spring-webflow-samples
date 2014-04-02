@@ -10,7 +10,8 @@
 
 	<properties>
 		<java-version>1.6</java-version>
-		<springwebflow-version>2.3.3.RELEASE</springwebflow-version>
+		<springwebflow-version>2.4.0.RC1</springwebflow-version>
+		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
 		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 	</properties>
@@ -20,7 +21,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.0.2.RELEASE</version>
+				<version>${spring-framework-version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

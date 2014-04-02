@@ -9,7 +9,8 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<webflow-version>2.3.3.RELEASE</webflow-version>
+		<springwebflow-version>2.4.0.RC1</springwebflow-version>
+		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
 		<slf4j-version>1.5.10</slf4j-version>
 		<myfaces-version>2.1.6</myfaces-version>
 	</properties>
@@ -27,7 +28,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.0.2.RELEASE</version>
+				<version>${spring-framework-version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -43,7 +44,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-		</dependency>				
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -58,8 +59,18 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-binding</artifactId>
+			<version>${springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
-			<version>${webflow-version}</version>
+			<version>${springwebflow-version}</version>
 		</dependency>
 		<!-- Database, JPA -->
 		<dependency>
@@ -137,7 +148,7 @@
 			<artifactId>portlet-api</artifactId>
 			<version>2.0</version>
 			<scope>provided</scope>
-		</dependency>		
+		</dependency>
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -206,7 +217,7 @@
 					<downloadJavadocs>false</downloadJavadocs>
 					<wtpversion>2.0</wtpversion>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 </project>

@@ -9,8 +9,9 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
+		<webflow-version>2.4.0.RC1</webflow-version>
+		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
 		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
-		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<slf4j-version>1.6.1</slf4j-version>
 		<mojarra-version>2.2.5</mojarra-version>
 		<primefaces-version>4.0</primefaces-version>
@@ -40,7 +41,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.0.2.RELEASE</version>
+				<version>${spring-framework-version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
