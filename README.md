@@ -12,7 +12,7 @@ Samples without a Portlet dependency can be run with the Tomcat Maven plugin. Fo
 
 ````
 cd booking-mvc
-mvn tomcat:run
+mvn tomcat7:run
 ````
 
 Eclipse
