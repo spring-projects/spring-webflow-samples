@@ -9,27 +9,24 @@
   <version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<webflow-version>2.4.0.RC1</webflow-version>
-		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
-		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
+		<webflow-version>2.4.0.RELEASE</webflow-version>
+		<spring-framework-version>4.0.5.RELEASE</spring-framework-version>
+		<springsecurity-version>3.2.4.RELEASE</springsecurity-version>
 		<slf4j-version>1.7.5</slf4j-version>
-		<thymeleaf-version>2.1.2.RELEASE</thymeleaf-version>
+		<thymeleaf-version>2.1.3.RELEASE</thymeleaf-version>
 		<thymeleaf-extras-tiles2-version>2.1.1.RELEASE</thymeleaf-extras-tiles2-version>
 		<thymeleaf-extras-springsecurity3-version>2.1.1.RELEASE</thymeleaf-extras-springsecurity3-version>
-		<thymeleaf-extras-conditionalcomments-version>2.1.0.RELEASE</thymeleaf-extras-conditionalcomments-version>
+		<thymeleaf-extras-conditionalcomments-version>2.1.1.RELEASE</thymeleaf-extras-conditionalcomments-version>
 		<tiles-version>2.2.2</tiles-version>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>spring-milestones</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
-		</repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/snapshot</url>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/milestone</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 	</repositories>
 

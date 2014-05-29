@@ -10,10 +10,10 @@
 
 	<properties>
 		<java-version>1.6</java-version>
-		<springwebflow-version>2.4.0.RC1</springwebflow-version>
-		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
-		<springsecurity-version>3.2.0.RELEASE</springsecurity-version>
-		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<springwebflow-version>2.4.0.RELEASE</springwebflow-version>
+		<springsecurity-version>3.2.4.RELEASE</springsecurity-version>
+		<primefaces-version>4.0</primefaces-version>
+		<org.slf4j-version>1.7.5</org.slf4j-version>
 	</properties>
 
 	<dependencyManagement>
@@ -21,7 +21,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring-framework-version}</version>
+				<version>4.0.5.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -149,7 +149,7 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.4.2</version>
+			<version>${primefaces-version}</version>
 		</dependency>
 		<!-- File uploads -->
 		<dependency>
@@ -184,9 +184,9 @@
 
 	<repositories>	
 		<repository>
-			<id>springsource</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/milestone</url>
 			<releases><enabled>true</enabled></releases>
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>

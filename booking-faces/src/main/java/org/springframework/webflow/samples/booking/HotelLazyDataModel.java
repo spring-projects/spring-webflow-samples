@@ -33,7 +33,7 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	}
 
 	@Override
-	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, String> filters) {
+	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, Object> filters) {
 		this.searchCriteria.setCurrentPage(first / pageSize + 1);
 		this.hotels = bookingService.findHotels(searchCriteria, first, sortField, order.equals(SortOrder.ASCENDING));
 		return hotels;

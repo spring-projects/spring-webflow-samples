@@ -9,16 +9,18 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springwebflow-version>2.4.0.RC1</springwebflow-version>
-		<spring-framework-version>4.0.3.RELEASE</spring-framework-version>
-		<slf4j-version>1.5.10</slf4j-version>
+		<springwebflow-version>2.4.0.RELEASE</springwebflow-version>
+		<spring-framework-version>4.0.5.RELEASE</spring-framework-version>
+		<slf4j-version>1.7.5</slf4j-version>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>spring-repository</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/milestone</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 	</repositories>
 
@@ -146,7 +148,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Beta1</version>
+			<version>4.3.0.Final</version>
 		</dependency>
 		<!--
 			JAXB is needed when running on Java 5. In this environment these dependencies have to be added 
