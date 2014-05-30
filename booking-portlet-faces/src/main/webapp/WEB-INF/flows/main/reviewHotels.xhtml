@@ -13,7 +13,7 @@
 	</p>
 	<div id="searchResults">
 		<h:outputText id="noHotelsText" value="No Hotels Found" rendered="#{hotels.rowCount == 0}"/>
-		<h:dataTable id="hotels" styleClass="summary" value="#{hotels}" var="hotel" rendered="#{hotels.rowCount > 0}">
+		<h:dataTable id="hotelsTable" styleClass="summary" value="#{hotels}" var="hotel" rendered="#{hotels.rowCount > 0}">
 			<h:column>
 				<f:facet name="header">Name</f:facet>
 				#{hotel.name}
@@ -32,7 +32,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Action</f:facet>
-				<h:commandLink id="viewHotelLink" value="View Hotel" action="select"/>
+				<h:commandLink value="View Hotel" action="select"/>
 			</h:column>
 		</h:dataTable>
 		<div class="next">
