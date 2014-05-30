@@ -18,17 +18,18 @@ mvn tomcat7:run
 Eclipse
 =======
 
-A. As Classic Eclipse project:
-Generate Eclipse settings for all samples:
+**Option A:** Classic Eclipse Project
 
+Generate Eclipse settings for all samples:
 ````
 mvn eclipse:clean eclipse:eclipse
 ````
 
 Import the projects into Eclipse. The Eclipse preferences must have an `M2_REPO` under "Java", "Build Path", "Classpath Variables".
 
-B. When using m2e (Maven Integration for Eclipse), Import the projects into Eclipse. 
+**Option B:** m2e (Maven Integration for Eclipse) Plugin
 
+Import the projects into Eclipse:
 File -> Import -> Maven -> Existing Maven Projects
 
 Contributing
