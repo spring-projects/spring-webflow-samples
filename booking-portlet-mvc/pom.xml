@@ -9,16 +9,18 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework-version>3.2.1.RELEASE</springframework-version>
-		<webflow-version>2.4.0.M1</webflow-version>
+		<springframework-version>4.0.5.RELEASE</springframework-version>
+		<webflow-version>2.3.4.RELEASE</webflow-version>
 		<slf4j-version>1.5.10</slf4j-version>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>spring-repository</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/milestone</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 	</repositories>
 
