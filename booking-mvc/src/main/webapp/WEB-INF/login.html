@@ -58,16 +58,10 @@
     </ul>
 </div>
 
-<div class="span-10 append-2 last" 
-     xmlns:th="http://www.thymeleaf.org"
-     th:with="lastUsernameKey=${T(org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter).SPRING_SECURITY_LAST_USERNAME_KEY},
-              lastExceptionKey=${T(org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter).SPRING_SECURITY_LAST_EXCEPTION_KEY}">
+<div class="span-10 append-2 last" xmlns:th="http://www.thymeleaf.org">
 
     <div class="error" th:if="${param.login_error}">
         Your login attempt was not successful, try again.<br /><br />
-        <span th:if="${session} and ${session[__${lastExceptionKey}__]}">
-            Reason: <span th:text="${session[__${lastExceptionKey}__].message}">Invalid password</span>
-        </span> 
     </div>
     
     <form name="f" action="#" th:action="@{/loginProcess}" method="post">
@@ -79,8 +73,7 @@
             <p>
                 <label for="username">User:</label>
                 <br />
-                <input type="text" name="username" id="username"
-                       th:value="(${param.login_error} and ${session}) ? ${session[__${lastUsernameKey}__]} : ''" />
+                <input type="text" name="username" id="username" />
             </p>
             
             <script type="text/javascript">

@@ -22,23 +22,19 @@
 	<c:if test="${not empty param.login_error}">
 		<div class="error">
 			Your login attempt was not successful, try again.<br />
-			Reason: #{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
 		</div>
 	</c:if>
 	<p:panel header="Login Information">
-		<form name="f" action="${request.contextPath}/app/j_spring_security_check" method="post">
+		<form name="f" action="${request.contextPath}/app/loginProcess" method="post">
 			<p>
 				User:
 				<br />
-				<c:if test="${not empty param.login_error}">
-					<c:set var="username" value="${sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
-				</c:if>
-				<input type="text" name="j_username" value="#{username}"/>
+				<input type="text" name="username" />
 			</p>
 			<p>
 				Password:
 				<br />
-				<input type="password" name="j_password" />				
+				<input type="password" name="password" />
 			</p>
 			<p>
 				<input type="checkbox" name="_spring_security_remember_me"/> 
