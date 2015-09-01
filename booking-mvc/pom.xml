@@ -9,7 +9,7 @@
   <version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<webflow-version>2.4.2.BUILD-SNAPSHOT</webflow-version>
+		<webflow-version>2.4.2.RELEASE</webflow-version>
 		<spring-framework-version>4.1.6.RELEASE</spring-framework-version>
 		<springsecurity-version>4.0.1.RELEASE</springsecurity-version>
 		<slf4j-version>1.7.5</slf4j-version>

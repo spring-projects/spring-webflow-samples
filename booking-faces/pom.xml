@@ -9,11 +9,11 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
-		<webflow-version>2.4.2.BUILD-SNAPSHOT</webflow-version>
+		<webflow-version>2.4.2.RELEASE</webflow-version>
 		<spring-framework-version>4.1.6.RELEASE</spring-framework-version>
 		<springsecurity-version>4.0.1.RELEASE</springsecurity-version>
 		<slf4j-version>1.6.1</slf4j-version>
-		<mojarra-version>2.2.5</mojarra-version>
+		<mojarra-version>2.2.12</mojarra-version>
 		<primefaces-version>5.0</primefaces-version>
 	</properties>
 
@@ -94,7 +94,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.9.Final</version>
 		</dependency>
-		<!-- JSF: Mojarra, PrimeFaces -->
+		<!-- JSF implementation: Mojarra -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -105,6 +105,19 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>${mojarra-version}</version>
 		</dependency>
+		<!-- JSF implementation: MyFaces
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+		-->
+
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
