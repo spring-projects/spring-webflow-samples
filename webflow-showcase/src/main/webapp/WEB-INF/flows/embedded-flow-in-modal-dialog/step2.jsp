@@ -1,6 +1,7 @@
 <div id="modalDialogContainer">
 	<p class="notice">This is step 2 of the flow embedded in a modal dialog.</p>
 	<form id="step2" action="${flowExecutionUrl}" method="POST">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		<button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
 		<button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
 		<button id="finish" type="submit" name="_eventId_finish">Finish &gt;&gt;</button>
