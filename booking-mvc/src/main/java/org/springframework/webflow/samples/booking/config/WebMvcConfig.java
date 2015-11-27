@@ -28,9 +28,6 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-	@Autowired
-	private WebFlowConfig webFlowConfig;
-
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/", "classpath:/META-INF/web-resources/");
@@ -46,22 +43,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		registry.addViewController("/").setViewName("intro");
 		registry.addViewController("/login");
 		registry.addViewController("/logoutSuccess");
-	}
-
-	@Bean
-	public FlowHandlerMapping flowHandlerMapping() {
-		FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
-		handlerMapping.setOrder(-1);
-		handlerMapping.setFlowRegistry(this.webFlowConfig.flowRegistry());
-		return handlerMapping;
-	}
-
-	@Bean
-	public FlowHandlerAdapter flowHandlerAdapter() {
-		FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
-		handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
-		handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
-		return handlerAdapter;
 	}
 
 	@Bean(name="hotels/booking")
