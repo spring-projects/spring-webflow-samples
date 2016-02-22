@@ -5,5 +5,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="security-config.xml"/>
-	
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 </beans>
