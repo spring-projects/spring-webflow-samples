@@ -10,7 +10,7 @@
 
 	<properties>
 		<java-version>1.6</java-version>
-		<springwebflow-version>2.4.2.RELEASE</springwebflow-version>
+		<springwebflow-version>2.4.3.RELEASE</springwebflow-version>
 		<springsecurity-version>4.0.1.RELEASE</springsecurity-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 	</properties>
@@ -20,7 +20,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.1.6.RELEASE</version>
+				<version>4.3.1.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -239,7 +239,7 @@
 			<name>JBoss Maven Release Repository</name>			
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
 			<snapshots><enabled>false</enabled></snapshots>			
-		</repository>		
+		</repository>
 	</repositories>
 
 	<build>
@@ -282,7 +282,12 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.0-beta-1</version>
-			</plugin>						
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
