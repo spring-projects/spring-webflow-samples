@@ -16,39 +16,43 @@ import org.springframework.webflow.security.SecurityFlowExecutionListener;
 
 @Configuration
 public class WebFlowConfig extends AbstractFlowConfiguration {
-
-	@Autowired
-	private WebMvcConfig webMvcConfig;
-
+	
 	@Bean
-	public FlowExecutor flowExecutor() {
-		return getFlowExecutorBuilder(flowRegistry())
+	public FlowDefinitionRegistry flowRegistry(FlowBuilderServices flowBuilderServices) {
+		return getFlowDefinitionRegistryBuilder(flowBuilderServices)
+				.setBasePath("/WEB-INF")
+				.addFlowLocationPattern("/**/*-flow.xml").build();
+	}
+	
+	@Bean
+	public FlowHandlerMapping flowHandlerMapping(FlowDefinitionRegistry flowRegistry) {
+		FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
+		handlerMapping.setOrder(-1);
+		handlerMapping.setFlowRegistry(flowRegistry);
+		return handlerMapping;
+	}
+	
+	@Bean
+	public FlowExecutor flowExecutor(FlowDefinitionRegistry flowRegistry) {
+		return getFlowExecutorBuilder(flowRegistry)
 				.addFlowExecutionListener(new SecurityFlowExecutionListener(), "*")
 				.build();
 	}
 
 	@Bean
-	public FlowDefinitionRegistry flowRegistry() {
-		return getFlowDefinitionRegistryBuilder(flowBuilderServices())
-				.setBasePath("/WEB-INF")
-				.addFlowLocationPattern("/**/*-flow.xml").build();
+	public FlowHandlerAdapter flowHandlerAdapter(FlowExecutor flowExecutor) {
+		FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
+		handlerAdapter.setFlowExecutor(flowExecutor);
+		handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
+		return handlerAdapter;
 	}
 
 	@Bean
-	public FlowBuilderServices flowBuilderServices() {
+	public FlowBuilderServices flowBuilderServices(LocalValidatorFactoryBean validator) {
 		return getFlowBuilderServicesBuilder()
-				.setViewFactoryCreator(mvcViewFactoryCreator())
-				.setValidator(validator())
+				.setValidator(validator)
 				.setDevelopmentMode(true)
 				.build();
-	}
-
-	@Bean
-	public MvcViewFactoryCreator mvcViewFactoryCreator() {
-		MvcViewFactoryCreator factoryCreator = new MvcViewFactoryCreator();
-		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver()));
-		factoryCreator.setUseSpringBeanBinding(true);
-		return factoryCreator;
 	}
 
 	@Bean
