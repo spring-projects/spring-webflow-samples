@@ -1,15 +1,14 @@
 package org.springframework.webflow.samples.booking.config;
 
-import javax.faces.webapp.FacesServlet;
 import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+
+import com.sun.faces.config.ConfigureListener;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.sun.faces.config.ConfigureListener;
 
 public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

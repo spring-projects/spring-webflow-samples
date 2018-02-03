@@ -5,40 +5,15 @@
 	<groupId>org.springframework.webflow.samples</groupId>
 	<artifactId>booking-faces</artifactId>
 	<packaging>war</packaging>
-	<name>Hotel Booking : Spring MVC + Web Flow + JSF/PrimeFaces</name>
+	<name>Hotel Booking : Spring Web Flow with JSF</name>
 	<version>1.0.0.BUILD-SNAPSHOT</version>
-
-	<properties>
-		<webflow-version>2.4.4.RELEASE</webflow-version>
-		<spring-framework-version>4.3.1.RELEASE</spring-framework-version>
-		<springsecurity-version>4.0.1.RELEASE</springsecurity-version>
-		<slf4j-version>1.6.1</slf4j-version>
-		<mojarra-version>2.2.12</mojarra-version>
-		<primefaces-version>5.0</primefaces-version>
-	</properties>
-
-	<repositories>
-		<repository>
-			<id>spring</id>
-			<name>Spring Repository</name>
-			<url>http://repo.spring.io/release</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>
-		<repository>
-			<id>primefaces-repository</id>
-			<name>Prime Technology Maven Repository</name>
-			<url>http://repository.primefaces.org</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring-framework-version}</version>
+				<version>4.3.13.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -70,23 +45,23 @@
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
-			<version>${webflow-version}</version>
+			<version>2.4.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${springsecurity-version}</version>
+			<version>4.2.4.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${springsecurity-version}</version>
+			<version>4.2.4.RELEASE</version>
         </dependency>	
 		<!-- Database, JPA -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>1.8.0.10</version>
+			<version>2.4.0</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -98,71 +73,50 @@
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>${mojarra-version}</version>
+			<version>2.2.16</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>${mojarra-version}</version>
+			<version>2.2.16</version>
 		</dependency>
 		<!-- JSF implementation: MyFaces
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
-			<version>2.2.8</version>
+			<version>2.2.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-impl</artifactId>
-			<version>2.2.8</version>
+			<version>2.2.12</version>
 		</dependency>
 		-->
-
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>${primefaces-version}</version>
+			<version>6.1</version>
 		</dependency>
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j-version}</version>
+			<version>1.7.25</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4j-version}</version>
+			<version>1.7.25</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j-version}</version>
-			<scope>runtime</scope>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>1.7.25</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 		<!-- Servlet -->
 		<dependency>
@@ -175,29 +129,26 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.0.2.GA</version>
+			<version>4.3.2.Final</version>
 		</dependency>
-		<!--
-			JAXB is needed when running on Java 5. In this environment these dependencies have to be added 
-			(unless xml	configuration is explicitly disabled via Configuration.ignoreXmlConfiguration) 
-			On Java 6 jaxb is part of the runtime environment.
-		-->
+		<!-- JAXB2 -->
         <dependency>
           <groupId>javax.xml.bind</groupId>
           <artifactId>jaxb-api</artifactId>
-          <version>2.1</version>
+          <version>2.2.3</version>
         </dependency>
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
-			<version>2.5.2</version>
+			<version>3.4</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.2</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -207,13 +158,21 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/snapshot</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<finalName>booking-faces</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.4</version>
+				<version>3.1.0</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
@@ -221,16 +180,16 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.7.0</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
+                <version>2.20.1</version>
 				<configuration>
 					<junitArtifactName>junit:junit</junitArtifactName>
 					<includes>
@@ -239,20 +198,15 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.8.v20171121</version>
 				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-					<wtpversion>2.0</wtpversion>
+					<webApp>
+						<contextPath>/${project.artifactId}</contextPath>
+					</webApp>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 </project>

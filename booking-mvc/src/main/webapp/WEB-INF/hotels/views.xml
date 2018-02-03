@@ -7,7 +7,7 @@
 	
 	<definition name="hotels/search" extends="standardLayout">
 		<put-attribute name="body">
-			<definition template="hotels/search.html :: content" templateType="thymeleaf">
+			<definition template="/hotels/search.html :: content" templateType="thymeleaf">
 				<put-attribute name="searchForm" value="/hotels/searchForm.html :: content" type="thymeleaf"/>
 				<put-attribute name="bookingsTable" value="/hotels/bookingsTable.html :: content" type="thymeleaf"/>
 			</definition>

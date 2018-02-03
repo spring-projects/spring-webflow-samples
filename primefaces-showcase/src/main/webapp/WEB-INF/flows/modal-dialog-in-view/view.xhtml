@@ -21,16 +21,16 @@
 		<p:messages id="messages" /> 
 		<p:menu style="width:250px">
 			<p:submenu label="Select your favorite phone">
-				<p:menuitem value="Android" action="android" update="confirmContent" oncomplete="confirmDialog.show()" />
-				<p:menuitem value="BlackBerry" action="blackberry" update="confirmContent" oncomplete="confirmDialog.show()" />
-				<p:menuitem value="iPhone" action="iphone" update="confirmContent" oncomplete="confirmDialog.show()" />
+				<p:menuitem value="Android" action="android" update="confirmContent" oncomplete="PF('dlg').show()" />
+				<p:menuitem value="BlackBerry" action="blackberry" update="confirmContent" oncomplete="PF('dlg').show()" />
+				<p:menuitem value="iPhone" action="iphone" update="confirmContent" oncomplete="PF('dlg').show()" />
 			</p:submenu>
 		</p:menu>
-		<p:dialog widgetVar="confirmDialog" header="Confirmation" modal="true" width="300">
+		<p:dialog id="confirmDialog" header="Confirmation" modal="true" width="300" widgetVar="dlg">
 			<p:outputPanel id="confirmContent">
 				<p><h:outputText value="Is ${selectedPhone} you favorite phone?" /></p>
-			    <p:commandButton value="Yes" action="confirm" update="messages" oncomplete="confirmDialog.hide()" />
-			    <p:commandButton value="No" action="cancel" update="messages" oncomplete="confirmDialog.hide()" />   
+			    <p:commandButton value="Yes" action="confirm" update="messages" oncomplete="PF('dlg').hide()" />
+			    <p:commandButton value="No" action="cancel" update="messages" oncomplete="PF('dlg').hide()" />
 			</p:outputPanel>
 		</p:dialog>
 	    <p:commandButton value="Exit" action="exit" />   

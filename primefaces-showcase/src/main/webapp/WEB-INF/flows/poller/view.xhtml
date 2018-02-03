@@ -26,15 +26,15 @@
 	</h:panelGroup>
 	<br/>
 	<div>
-		<p:poll widgetVar="poller" interval="1" update="contentPanel" autoStart="false" />
-		<p:commandButton value="Start" action="start" update="contentPanel" onclick="poller.start()" />
-		<p:commandButton value="Stop" action="stop" update="contentPanel" onclick="poller.stop()" />
+		<p:poll interval="1" autoStart="false" update="contentPanel" widgetVar="poller" />
+		<p:commandButton value="Start" action="start" update="contentPanel" onclick="PF('poller').start()" />
+		<p:commandButton value="Stop" action="stop" update="contentPanel" onclick="PF('poller').stop()" />
 		<p:commandButton value="Exit" action="exit" /><br/>
 	<hr/>
 <pre>
-<span class="alt">&lt;p:poll widgetVar="poller" interval="1" update="contentPanel" autoStart="false"/&gt;</span>
-<span class="alt">&lt;p:commandButton value="Start" action="start" update="contentPanel" onclick="poller.start()"/&gt;</span>
-<span class="alt">&lt;p:commandButton value="Stop" action="stop" update="contentPanel" onclick="poller.stop()"/&gt;</span>
+<span class="alt">&lt;p:poll interval="1" autoStart="false" update="contentPanel" widgetVar="poller" /&gt;</span>
+<span class="alt">&lt;p:commandButton value="Start" action="start" update="contentPanel" onclick="PF('poller').start()"/&gt;</span>
+<span class="alt">&lt;p:commandButton value="Stop" action="stop" update="contentPanel" onclick="PF('poller').stop()"/&gt;</span>
 </pre>		
 	</div>
 </h:form>

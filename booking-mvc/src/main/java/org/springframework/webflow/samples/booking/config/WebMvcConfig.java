@@ -94,7 +94,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public ServletContextTemplateResolver templateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-		templateResolver.setPrefix("/WEB-INF/");
+		templateResolver.setPrefix("/WEB-INF");
 		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
 	}
