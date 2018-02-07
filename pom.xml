@@ -7,6 +7,7 @@
 	<packaging>pom</packaging>
 	<name>Spring Web Flow Samples</name>
 	<version>1.0.0.BUILD-SNAPSHOT</version>
+
 	<modules>
 		<module>booking-mvc</module>
 		<module>booking-faces</module>
@@ -15,4 +16,43 @@
 		<module>primefaces-showcase</module>
 		<module>webflow-showcase</module>
 	</modules>
+
+	<properties>
+		<easymock.version>3.4</easymock.version>
+		<hsqldb.version>2.4.0</hsqldb.version>
+		<hibernate.version>3.6.9.Final</hibernate.version>
+		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
+		<jaxb.version>2.2.3</jaxb.version>
+		<jetty-maven-plugin.version>9.4.8.v20171121</jetty-maven-plugin.version>
+		<junit.version>4.12</junit.version>
+		<logback.version>1.2.3</logback.version>
+		<mojarra.version>2.2.16</mojarra.version>
+		<myfaces.version>2.2.12</myfaces.version>
+		<primefaces.version>6.1</primefaces.version>
+		<servlet.version>3.0.1</servlet.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<spring-security.version>4.2.4.RELEASE</spring-security.version>
+		<webflow.version>2.4.7.RELEASE</webflow.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>4.3.13.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/snapshot</url>
+		</repository>
+	</repositories>
+
 </project>
