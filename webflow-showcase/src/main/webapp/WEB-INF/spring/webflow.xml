@@ -9,12 +9,8 @@
            http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
 
 	<!-- Executes flows: the entry point into the Spring Web Flow system -->
-	<webflow:flow-executor id="flowExecutor">
-		<webflow:flow-execution-listeners>
-			<webflow:listener ref="securityFlowExecutionListener" />
-		</webflow:flow-execution-listeners>
-	</webflow:flow-executor>
-	
+	<webflow:flow-executor id="flowExecutor"/>
+
 	<!-- The registry of executable flow definitions -->
 	<webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
 		<webflow:flow-location-pattern value="/**/flow.xml" />
@@ -33,7 +29,4 @@
 	<!-- Bootstraps JSR-303 validation and exposes it through Spring's Validator interface -->
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 	
-	<!-- Installs a listener to apply Spring Security authorities -->
-	<bean id="securityFlowExecutionListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
-		
 </beans>
