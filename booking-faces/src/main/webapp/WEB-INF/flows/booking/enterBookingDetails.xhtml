@@ -130,6 +130,9 @@
 				</div>
 			</div>
 			<div>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			</div>
+			<div>
 				<p:commandButton id="proceed" action="proceed" value="Proceed" update="@form" />
 				<p:commandButton id="cancel" value="Cancel" action="cancel" immediate="true" />
 			</div>		

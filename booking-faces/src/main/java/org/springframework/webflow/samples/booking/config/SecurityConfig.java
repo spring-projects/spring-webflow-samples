@@ -5,8 +5,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 @Configuration
 @EnableWebSecurity
@@ -14,7 +12,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
 		http
 			.formLogin()
 				.loginPage("/spring/login")
@@ -24,15 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.logoutUrl("/spring/logout")
-				.logoutSuccessUrl("/spring/logoutSuccess")
-				.and()
-
-			// Disable CSRF (won't work with JSF) but ensure last HTTP POST request is saved
-			// See https://jira.springsource.org/browse/SEC-2498
-
-			.csrf().disable()
-			.requestCache()
-				.requestCache(new HttpSessionRequestCache());
+				.logoutSuccessUrl("/spring/logoutSuccess");
 	}
 
 	@Override

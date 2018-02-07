@@ -35,6 +35,9 @@
             </h:outputText>
 	    </div>
 		<div>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		</div>
+		<div>
 			<p:commandButton id="book" action="book" value="Book Hotel" ajax="false" />
 			<p:commandButton id="cancel" action="cancel" value="Back to Search"/>
 		</div>

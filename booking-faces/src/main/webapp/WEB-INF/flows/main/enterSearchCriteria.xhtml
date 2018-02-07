@@ -31,7 +31,8 @@
 			</h:panelGrid>
 			<p:tooltip for="searchString" targetPosition="topRight" position="bottomLeft"
 				value="Search hotels by name, address, city, or zip." style="cream" />
-		</h:form>			  
+			<div><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></div>
+		</h:form>
 	</p:panel>
 
 	<p:panel id="bookings" header="Your Hotel Bookings" rendered="#{currentUser!=null}" toggleable="true" toggleSpeed="100" style="margin-top: 10px">
@@ -67,7 +68,8 @@
 					</p:column>
 				</p:dataTable>
 			</p:outputPanel>
-		</h:form>			  
+			<div><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></div>
+		</h:form>
 	</p:panel>				  
 
 </ui:define>

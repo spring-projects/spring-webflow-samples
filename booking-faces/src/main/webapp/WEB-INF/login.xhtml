@@ -24,8 +24,7 @@
 <div class="span-10 append-2 last">
 	<c:if test="${not empty param.login_error}">
 		<div class="error">
-			Your login attempt was not successful, try again.<br />
-			Reason: #{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+			Your login attempt was not successful, try again.
 		</div>
 	</c:if>
 	<form name="f" action="${request.contextPath}/spring/loginProcess" method="post">
@@ -34,9 +33,6 @@
 				<p>
 					User:
 					<br />
-					<c:if test="${not empty param.login_error}">
-						<c:set var="username" value="${sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
-					</c:if>
 					<input type="text" name="username" value="#{username}"/>
 				</p>
 				<p>
@@ -48,6 +44,9 @@
 					<input type="checkbox" name="_spring_security_remember_me"/> 
 					Don't ask for my password for two weeks:
 				</p>
+				<div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</div>
 				<p>
 					<input name="submit" type="submit" value="Login" />
 				</p>
