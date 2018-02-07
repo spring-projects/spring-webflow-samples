@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC
-	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
-	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
-	
+		"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
 <tiles-definitions>
 	
-	<definition name="enterBookingDetails" extends="standardLayout" templateType="thymeleaf">
-		<put-attribute name="body" value="/hotels/booking/enterBookingDetails.html :: content" type="thymeleaf"/>
+	<definition name="enterBookingDetails" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/enterBookingDetails.jsp"/>
 	</definition>
-
-	<definition name="reviewBooking" extends="standardLayout" templateType="thymeleaf">
-		<put-attribute name="body" value="/hotels/booking/reviewBooking.html :: content" type="thymeleaf"/>
+	
+	<definition name="reviewBooking" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/hotels/booking/reviewBooking.jsp" />
 	</definition>
 	
 </tiles-definitions>
