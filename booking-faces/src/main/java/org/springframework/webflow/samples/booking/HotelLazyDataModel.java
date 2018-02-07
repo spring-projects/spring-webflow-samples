@@ -1,6 +1,3 @@
-/**
- *
- */
 package org.springframework.webflow.samples.booking;
 
 import java.util.List;

@@ -1,12 +1,11 @@
 package org.springframework.webflow.samples.booking.config;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.webflow.config.AbstractFlowConfiguration;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices;
@@ -46,7 +45,7 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
 	@Bean
 	public MvcViewFactoryCreator mvcViewFactoryCreator() {
 		MvcViewFactoryCreator factoryCreator = new MvcViewFactoryCreator();
-		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver()));
+		factoryCreator.setViewResolvers(Collections.singletonList(this.webMvcConfig.tilesViewResolver()));
 		factoryCreator.setUseSpringBeanBinding(true);
 		return factoryCreator;
 	}

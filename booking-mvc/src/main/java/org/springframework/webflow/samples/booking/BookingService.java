@@ -13,21 +13,21 @@ public interface BookingService {
      * @param username the user's name
      * @return their bookings
      */
-    public List<Booking> findBookings(String username);
+    List<Booking> findBookings(String username);
 
     /**
      * Find hotels available for booking by some criteria.
      * @param criteria the search criteria
      * @return a list of hotels meeting the criteria
      */
-    public List<Hotel> findHotels(SearchCriteria criteria);
+    List<Hotel> findHotels(SearchCriteria criteria);
 
     /**
      * Find hotels by their identifier.
      * @param id the hotel id
      * @return the hotel
      */
-    public Hotel findHotelById(Long id);
+    Hotel findHotelById(Long id);
 
     /**
      * Create a new, transient hotel booking instance for the given user.
@@ -35,18 +35,18 @@ public interface BookingService {
      * @param userName the user name
      * @return the new transient booking instance
      */
-    public Booking createBooking(Long hotelId, String userName);
+    Booking createBooking(Long hotelId, String userName);
 
     /**
      * Persist the booking to the database
      * @param booking the booking
      */
-    public void persistBooking(Booking booking);
+    void persistBooking(Booking booking);
 
     /**
      * Cancel an existing booking.
      * @param id the booking id
      */
-    public void cancelBooking(Long id);
+    void cancelBooking(Long id);
 
 }
