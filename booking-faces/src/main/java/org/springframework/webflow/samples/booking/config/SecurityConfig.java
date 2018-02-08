@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 @Configuration
 @EnableWebSecurity
@@ -21,7 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.logoutUrl("/spring/logout")
-				.logoutSuccessUrl("/spring/logoutSuccess");
+				.logoutSuccessUrl("/spring/logoutSuccess")
+				.and()
+			.requestCache()
+				.requestCache(new HttpSessionRequestCache());
 	}
 
 	@Override
