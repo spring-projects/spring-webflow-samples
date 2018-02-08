@@ -19,41 +19,39 @@
 		<fieldset>
 			<legend>Confirm Booking Details</legend>
 			<div>
-				<div class="span-3">Check In:</div>
-				<div class="span-8 last">
+				<div class="span-4">Check In:</div>
+				<div class="last">
 					<p><spring:bind path="checkinDate">${status.value}</spring:bind></p>
 				</div>
 			</div>
 			<div>
-				<div class="span-3">Checkout:</div>
-				<div class="span-8 last">
+				<div class="span-4">Checkout:</div>
+				<div class="last">
 					<p><spring:bind path="checkoutDate">${status.value}</spring:bind></p>
 				</div>
 			</div>
 	        <div>
-	            <div class="span-3">Number of Nights:</div>
-	            <div class="span-8 last">
+	            <div class="span-4">Number of Nights:</div>
+	            <div class="last">
 	            	<p><spring:bind path="nights">${status.value}</spring:bind></p>
 	            </div>
 	        </div>
 	        <div>
-	            <div class="span-3">Total Payment:</div>
-	            <div class="span-8 last">
+	            <div class="span-4">Total Payment:</div>
+	            <div class="last">
 	            	<p><spring:bind path="total">${status.value}</spring:bind></p>
 	            </div>
 	        </div>
 			<div>
-				<div class="span-3">Credit Card #:</div>
-				<div class="span-8 last">
+				<div class="span-4">Credit Card #:</div>
+				<div class="last">
 					<p>${booking.creditCard}</p>
 				</div>
 			</div>
 			<div>
-				<p>
-					<button type="submit" name="_eventId_confirm">Confirm</button>
-					<button type="submit" name="_eventId_revise" id="revise">Revise</button>
-					<button type="submit" name="_eventId_cancel">Cancel</button>
-				</p>
+				<button type="submit" name="_eventId_confirm">Confirm</button>
+				<button type="submit" name="_eventId_revise" id="revise">Revise</button>
+				<button type="submit" name="_eventId_cancel">Cancel</button>
 				<script type="text/javascript">
 					Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'revise',event:'onclick',formId:'confirm'}));
 				</script>

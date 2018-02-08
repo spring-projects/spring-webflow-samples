@@ -9,19 +9,18 @@
     	<form:errors path="*"/>
     </span>
 	<fieldset>
-		<div class="span-8">
-			<label for="searchString">Search String:</label>
+		<div class="span-7">
 			<form:input id="searchString" path="searchString"/>
 			<script type="text/javascript">
 				Spring.addDecoration(new Spring.ElementDecoration({
 					elementId : "searchString",
 					widgetType : "dijit.form.ValidationTextBox",
-					widgetAttrs : { promptMessage : "Search hotels by name, address, city, or zip." }}));
+					widgetAttrs : { promptMessage : "Name, address, city, or zip." }}));
 			</script>
 		</div>
 		<div class="span-6">
 			<div>
-				<label for="pageSize">Maximum results:</label>
+				<label for="pageSize">Page Size:</label>
 				<form:select id="pageSize" path="pageSize">
 					<form:option label="5" value="5"/>
 					<form:option label="10" value="10"/>

@@ -21,22 +21,22 @@
 <div id="page" class="container">
 	<div id="header">
 		<div id="topbar">
-			<p>
-				<security:authorize access="hasRole('ROLE_USER')">
-					<c:if test="${pageContext.request.userPrincipal != null}">
-						Welcome, ${pageContext.request.userPrincipal.name} |
-					</c:if>
-					<form name="f" action="<c:url value="/logout" />" method="post">
-						<div>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						</div>
+			<security:authorize access="hasRole('ROLE_USER')">
+				<form action="<c:url value="/logout" />" method="post" class="inline">
+					<div class="span-4 label">
+						<c:if test="${pageContext.request.userPrincipal != null}">
+							Welcome, ${pageContext.request.userPrincipal.name}
+						</c:if>
+					</div>
+					<div class="last">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<button id="submit" type="submit">Logout</button>
-					</form>
-				</security:authorize>
-				<security:authorize access="hasRole('ROLE_ANONYMOUS')">
-					<a href="<c:url value="/login" />">Login</a>
-				</security:authorize>
-			</p>
+					</div>
+				</form>
+			</security:authorize>
+			<security:authorize access="hasRole('ROLE_ANONYMOUS')">
+				<a href="<c:url value="/login" />">Login</a>
+			</security:authorize>
 		</div>
 		<div id="logo">
 			<p>

@@ -34,7 +34,7 @@
 					<div class="span-4">
 						<label for="checkinDate">Check In:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p><form:input path="checkinDate"/></p>
 						<script type="text/javascript">
 							Spring.addDecoration(new Spring.ElementDecoration({
@@ -49,7 +49,7 @@
 					<div class="span-4">
 						<label for="checkoutDate">Check Out:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p><form:input path="checkoutDate"/></p>
 						<script type="text/javascript">
 							Spring.addDecoration(new Spring.ElementDecoration({
@@ -63,7 +63,7 @@
 					<div class="span-4">
 						<label for="beds">Room Preference:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p>
 							<form:select id="beds" path="beds">
 								<form:option label="One king-size bed" value="1"/>
@@ -74,10 +74,10 @@
 					</div>
 				</div>
 				<div>
-					<div class="label span-4">
-						Smoking Preference:
+					<div class="label">
+						<label for="radio">Smoking Preference:</label>
 					</div>
-					<div id="radio" class="span-7 last">
+					<div id="radio">
 						<p>
 							<form:radiobutton id="smoking" path="smoking" label="Smoking" value="true"/>
 							<form:radiobutton id="non-smoking" path="smoking" label="Non Smoking" value="false"/>
@@ -99,15 +99,13 @@
 					</div>
 				</div>
 				<div>
-					<div class="label span-4">
-						Amenities:
+					<div>
+						<label for="amenities">Amenities:</label>
 					</div>
-					<div id="amenities" class="span-7 last">
+					<div id="amenities">
 						<p>
 							<form:checkbox path="amenities" value="OCEAN_VIEW" label="Ocean View" />
-							<br />
 							<form:checkbox path="amenities" value="LATE_CHECKOUT" label="Late Checkout" />
-							<br />
 							<form:checkbox path="amenities" value="MINIBAR" label="Minibar" />
 						</p>
 						<script type="text/javascript">
@@ -125,7 +123,7 @@
 					<div class="span-4">
 						<label for="creditCard">Credit Card #:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p><form:input path="creditCard"/></p>
 						<script type="text/javascript">
 							Spring.addDecoration(new Spring.ElementDecoration({
@@ -140,7 +138,7 @@
 					<div class="span-4">
 						<label for="creditCardName">Credit Card Name:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p><form:input path="creditCardName" maxlength="40"/></p>
 						<script type="text/javascript">
 							Spring.addDecoration(new Spring.ElementDecoration({
@@ -154,7 +152,7 @@
 					<div class="span-4">
 						<label for="creditCardExpiryMonth">Expiration Date:</label>
 					</div>
-					<div class="span-7 last">
+					<div class="last">
 						<p>
 							<form:select id="creditCardExpiryMonth" path="creditCardExpiryMonth">
 								<form:option label="Jan" value="1"/>
@@ -181,10 +179,8 @@
 					</div>
 				</div>
 				<div>
-					<p>
 					<button type="submit" id="proceed" name="_eventId_proceed">Proceed</button>
 					<button type="submit" name="_eventId_cancel" >Cancel</button>
-					</p>
 					<script type="text/javascript">
 						Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));
 						Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'proceed',event:'onclick',formId:'booking'}));
