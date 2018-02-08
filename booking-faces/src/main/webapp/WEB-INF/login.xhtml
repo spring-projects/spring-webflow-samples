@@ -48,6 +48,9 @@
 					<input type="checkbox" name="_spring_security_remember_me"/> 
 					Don't ask for my password for two weeks:
 				</p>
+				<div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</div>
 				<p>
 					<input name="submit" type="submit" value="Login" />
 				</p>

@@ -26,11 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutUrl("/spring/logout")
 				.logoutSuccessUrl("/spring/logoutSuccess")
 				.and()
-
-			// Disable CSRF (won't work with JSF) but ensure last HTTP POST request is saved
-			// See https://jira.springsource.org/browse/SEC-2498
-
-			.csrf().disable()
 			.requestCache()
 				.requestCache(new HttpSessionRequestCache());
 

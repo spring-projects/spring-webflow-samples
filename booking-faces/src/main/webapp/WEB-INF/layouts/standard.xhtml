@@ -31,7 +31,11 @@
 	<div>
 		<h4 class="alt bottom">
 			<c:if test="${not empty currentUser.name}">
-		    	Welcome, ${currentUser.name} | <a href="${request.contextPath}/spring/logout">Logout</a>
+				<form name="f" action="${request.contextPath}/spring/logout" method="post">
+					<div><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></div>
+					Welcome, ${currentUser.name}
+					<input name="submit" type="submit" value="Logout" />
+				</form>
 			</c:if>
 			<c:if test="${empty currentUser.name}">
 				<a href="${request.contextPath}/spring/login">Login</a>
