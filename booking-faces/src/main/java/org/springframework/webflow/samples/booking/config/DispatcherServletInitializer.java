@@ -4,8 +4,6 @@ import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import com.sun.faces.config.ConfigureListener;
-
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -44,7 +42,8 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 		// Declare Spring Security Facelets tag library
 		servletContext.setInitParameter("javax.faces.FACELETS_LIBRARIES", "/WEB-INF/springsecurity.taglib.xml");
 
-		servletContext.addListener(ConfigureListener.class);
+		// Comment out if not using Mojarra
+		servletContext.addListener(com.sun.faces.config.ConfigureListener.class);
 
 		// Let the DispatcherServlet be registered
 		super.onStartup(servletContext);

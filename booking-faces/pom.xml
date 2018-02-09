@@ -61,7 +61,7 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>${mojarra.version}</version>
 		</dependency>
-		<!-- JSF implementation: MyFaces
+		<!-- JSF implementation: MyFaces (also change DispatcherServletInitializer)
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
