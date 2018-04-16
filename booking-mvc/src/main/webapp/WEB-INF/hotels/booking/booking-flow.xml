@@ -32,7 +32,7 @@
 		<transition on="cancel" to="cancel" bind="false" />
 	</view-state>
 	
-	<view-state id="reviewBooking" model="booking">
+	<view-state id="reviewBooking">
 		<on-render>
 			<render fragments="body" />
 		</on-render>
