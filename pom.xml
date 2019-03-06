@@ -55,12 +55,12 @@
 		<repository>
 			<id>spring-snapshot</id>
 			<name>Spring Snapshot Repository</name>
-			<url>http://repo.spring.io/snapshot</url>
+			<url>https://repo.spring.io/snapshot</url>
 		</repository>
 		<repository>
 			<id>spring-milestone</id>
 			<name>Spring Milestone Repository</name>
-			<url>http://repo.spring.io/milestone</url>
+			<url>https://repo.spring.io/milestone</url>
 		</repository>
 	</repositories>
 	-->
