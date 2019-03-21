@@ -81,5 +81,5 @@ a:link:after, a:visited:after {
    (note: This is valid CSS3, but it still won't go through the W3C CSS Validator) */
 
 /* a[href^="/"]:after {
-  content: " (http://www.yourdomain.com" attr(href) ") ";
+  content: " (https://www.yoursite.com" attr(href) ") ";
 } */
