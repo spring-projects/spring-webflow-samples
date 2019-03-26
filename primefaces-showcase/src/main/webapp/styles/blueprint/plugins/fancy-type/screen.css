@@ -33,7 +33,7 @@
 
 
 /* Reduced size type with incremental leading
-   (http://www.markboulton.co.uk/journal/comments/incremental_leading/)
+   (https://www.markboulton.co.uk/journal/comments/incremental_leading/)
 
    This could be used for side notes. For smaller type, you don't necessarily want to 
    follow the 1.5x vertical rhythm -- the line-height is too much. 
@@ -58,7 +58,7 @@ p.incr, .incr p {
 
 
 /* Surround uppercase words and abbreviations with this class.
-   Based on work by Jørgen Arnor Gårdsø Lom [http://twistedintellect.com/] */
+   Based on work by Jørgen Arnor Gårdsø Lom [https://twistedintellect.com/] */
    
 .caps { 
   font-variant: small-caps; 
