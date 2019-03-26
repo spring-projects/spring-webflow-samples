@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/webflow 
-		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+		https://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
 	<view-state id="step1" view="embeddedFlow/step1">
 		<transition on="next" to="step2"/> 
