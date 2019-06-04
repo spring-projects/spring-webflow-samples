@@ -32,7 +32,7 @@
 		<servlet.version>3.0.1</servlet.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<spring-security.version>4.2.4.RELEASE</spring-security.version>
-		<webflow.version>2.4.7.RELEASE</webflow.version>
+		<webflow.version>2.4.8.RELEASE</webflow.version>
 	</properties>
 
 	<dependencyManagement>
@@ -40,7 +40,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.3.13.RELEASE</version>
+				<version>4.3.24.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
