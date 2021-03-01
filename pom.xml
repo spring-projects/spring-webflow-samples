@@ -17,18 +17,17 @@
 
 	<properties>
 		<easymock.version>3.4</easymock.version>
-		<hsqldb.version>2.4.0</hsqldb.version>
-		<hibernate.version>5.2.12.Final</hibernate.version>
-		<hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
+		<hsqldb.version>2.5.1</hsqldb.version>
+		<hibernate.version>5.4.28.Final</hibernate.version>
+		<hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
 		<jaxb.version>2.2.3</jaxb.version>
-		<jetty-maven-plugin.version>9.4.8.v20171121</jetty-maven-plugin.version>
-		<junit.version>4.12</junit.version>
-		<log4j.version>2.10.0</log4j.version>
-		<mojarra.version>2.2.16</mojarra.version>
-		<myfaces.version>2.2.12</myfaces.version>
-		<primefaces.version>6.1</primefaces.version>
+		<jetty-maven-plugin.version>9.4.38.v20210224</jetty-maven-plugin.version>
+		<junit.version>4.13.2</junit.version>
+		<log4j.version>2.14.0</log4j.version>
+		<mojarra.version>2.2.20</mojarra.version>
+		<myfaces.version>2.3.8</myfaces.version>
+		<primefaces.version>8.0</primefaces.version>
 		<servlet.version>3.1.0</servlet.version>
-		<spring-security.version>5.1.5.RELEASE</spring-security.version>
 		<tiles.version>3.0.8</tiles.version>
 		<webflow.version>2.5.1.RELEASE</webflow.version>
 	</properties>
@@ -38,14 +37,21 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>5.1.7.RELEASE</version>
+				<version>5.3.4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<type>pom</type>
+				<scope>import</scope>
+				<version>5.4.2</version>
+			</dependency>
+			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.7.25</version>
+				<version>1.7.30</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

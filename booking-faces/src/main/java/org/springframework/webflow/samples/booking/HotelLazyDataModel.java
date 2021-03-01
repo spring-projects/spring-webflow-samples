@@ -3,8 +3,10 @@ package org.springframework.webflow.samples.booking;
 import java.util.List;
 import java.util.Map;
 
+import org.primefaces.model.FilterMeta;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class HotelLazyDataModel extends LazyDataModel<Hotel> {
@@ -30,7 +32,7 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	}
 
 	@Override
-	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, Object> filters) {
+	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, FilterMeta> filterBy) {
 		this.searchCriteria.setCurrentPage(first / pageSize + 1);
 		this.hotels = bookingService.findHotels(searchCriteria, first, sortField, order.equals(SortOrder.ASCENDING));
 		return hotels;
@@ -39,7 +41,7 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	@Override
 	public Hotel getRowData(String rowKey) {
 		for (Hotel hotel : this.hotels){
-			if (hotel.getId().equals(rowKey)) {
+			if (hotel.getId().equals(Long.valueOf(rowKey))) {
 				return hotel;
 			}
  		}
