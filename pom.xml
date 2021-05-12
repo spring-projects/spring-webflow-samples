@@ -46,7 +46,7 @@
 				<artifactId>spring-security-bom</artifactId>
 				<type>pom</type>
 				<scope>import</scope>
-				<version>5.4.2</version>
+				<version>5.4.4</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
