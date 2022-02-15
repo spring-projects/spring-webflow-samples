@@ -23,7 +23,7 @@
 		<jaxb.version>2.2.3</jaxb.version>
 		<jetty-maven-plugin.version>9.4.38.v20210224</jetty-maven-plugin.version>
 		<junit.version>4.13.2</junit.version>
-		<log4j.version>2.14.0</log4j.version>
+		<log4j.version>2.17.1</log4j.version>
 		<mojarra.version>2.2.20</mojarra.version>
 		<myfaces.version>2.3.8</myfaces.version>
 		<primefaces.version>8.0</primefaces.version>
