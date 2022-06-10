@@ -33,6 +33,7 @@
 		<primefaces.version>8.0</primefaces.version>
 		<servlet.version>5.0.0</servlet.version>
 		<webflow.version>3.0.0-SNAPSHOT</webflow.version>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencyManagement>
