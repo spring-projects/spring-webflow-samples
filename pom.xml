@@ -30,6 +30,7 @@
 		<servlet.version>3.1.0</servlet.version>
 		<tiles.version>3.0.8</tiles.version>
 		<webflow.version>2.5.1.RELEASE</webflow.version>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencyManagement>
