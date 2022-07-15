@@ -7,13 +7,11 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
-import org.springframework.webflow.mvc.view.AjaxUrlBasedViewResolver;
-import org.springframework.webflow.mvc.view.FlowAjaxTiles3View;
 import org.springframework.webflow.samples.booking.BookingFlowHandler;
 
 @EnableWebMvc
@@ -62,17 +60,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	}
 
 	@Bean
-	public AjaxUrlBasedViewResolver viewResolver() {
-		AjaxUrlBasedViewResolver resolver = new AjaxUrlBasedViewResolver();
-		resolver.setViewClass(FlowAjaxTiles3View.class);
-		return resolver;
-	}
-
-	@Bean
-	public TilesConfigurer tilesConfigurer() {
-		TilesConfigurer configurer = new TilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/views.xml");
-		return configurer;
+	public UrlBasedViewResolver viewResolver() {
+		return new InternalResourceViewResolver();
 	}
 
 }

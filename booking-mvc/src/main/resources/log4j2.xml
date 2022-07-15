@@ -7,6 +7,7 @@
 	</Appenders>
 	<Loggers>
 		<Logger name="org.springframework.samples" level="debug" />
+		<Logger name="org.springframework.web" level="debug" />
 		<Root level="info">
 			<AppenderRef ref="Console" />
 		</Root>

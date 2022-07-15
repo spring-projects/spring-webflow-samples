@@ -1,7 +1,7 @@
 package org.springframework.webflow.samples.booking;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.webflow.core.FlowException;
 import org.springframework.webflow.execution.FlowExecutionOutcome;
