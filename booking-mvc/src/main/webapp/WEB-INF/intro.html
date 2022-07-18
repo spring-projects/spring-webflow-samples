@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:tiles="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org"
       lang="en">
 
-<head>
+<head th:replace="layouts/standard.html :: //head">
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <!-- This <head> section is only used for static prototyping purposes. At runtime, -->
-    <!-- Tiles will only use the body fragment defined with tiles:fragment="content",  --> 
-    <!-- as specified at the corresponding views.xml file.                             -->
+    <!-- This <head> section is only used for static prototyping purposes.             -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
@@ -23,31 +19,17 @@
           href="../styles/blueprint/print.css" />
     
     <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" media="screen, projection"
+    <link rel="stylesheet" type="text/css" media="screen, projection"
               href="../styles/blueprint/ie.css" />
     <![endif]-->
     
-    <link rel="stylesheet" type="text/css" media="screen" 
-          href="../styles/booking.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/booking.css" />
 
-    
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
-    <!-- Some styles and scripts are served from spring-js-resources-{ver}.jar at -->
-    <!-- runtime. Therefore not available for static prototyping. See the         -->
-    <!-- layouts/standard.html template file for detail.                          -->
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
-    
 </head>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- START of the content to be included in the execution result.  -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- Only the markup inside this <body> would be required in this  -->
-<!-- template if no static prototyping was intended.               -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<body tiles:fragment="content">
+<body th:replace="layouts/standard.html :: body(~{::bodyContent})">
 
-<div>
+<div th:fragment="bodyContent">
     <h1>Welcome to Spring Travel</h1>
     <p>
         This sample demonstrates how to use Spring MVC and Spring Web Flow together with Thymeleaf and Tiles.
@@ -77,10 +59,6 @@
     </p>
 </div>
 
-
 </body>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- END of the content to be included in the execution result -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 </html>

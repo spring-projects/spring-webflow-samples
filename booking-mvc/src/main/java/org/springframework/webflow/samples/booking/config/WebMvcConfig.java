@@ -3,33 +3,42 @@ package org.springframework.webflow.samples.booking.config;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import jakarta.servlet.ServletContext;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.view.AjaxThymeleafViewResolver;
+import org.thymeleaf.spring6.view.FlowAjaxThymeleafView;
+import org.thymeleaf.templateresolver.WebApplicationTemplateResolver;
+import org.thymeleaf.web.IWebApplication;
+import org.thymeleaf.web.servlet.JakartaServletWebApplication;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 import org.springframework.webflow.samples.booking.BookingFlowHandler;
-import org.thymeleaf.dialect.IDialect;
-import org.thymeleaf.extras.conditionalcomments.dialect.ConditionalCommentsDialect;
-import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
-import org.thymeleaf.extras.tiles2.dialect.TilesDialect;
-import org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer;
-import org.thymeleaf.extras.tiles2.spring4.web.view.FlowAjaxThymeleafTilesView;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.view.AjaxThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @EnableWebMvc
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig implements WebMvcConfigurer, ServletContextAware {
 
 	@Autowired
 	private WebFlowConfig webFlowConfig;
+
+	private ServletContext servletContext;
+
+	@Override
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -70,9 +79,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public AjaxThymeleafViewResolver tilesViewResolver() {
+	public AjaxThymeleafViewResolver thymeleafViewResolver() {
 		AjaxThymeleafViewResolver viewResolver = new AjaxThymeleafViewResolver();
-		viewResolver.setViewClass(FlowAjaxThymeleafTilesView.class);
+		viewResolver.setViewClass(FlowAjaxThymeleafView.class);
 		viewResolver.setTemplateEngine(templateEngine());
 		return viewResolver;
 	}
@@ -80,10 +89,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public SpringTemplateEngine templateEngine(){
 
-		Set<IDialect> dialects = new LinkedHashSet<IDialect>();
-		dialects.add(new TilesDialect());
+		Set<IDialect> dialects = new LinkedHashSet<>();
 		dialects.add(new SpringSecurityDialect());
-		dialects.add(new ConditionalCommentsDialect());
 
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver());
@@ -92,18 +99,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public ServletContextTemplateResolver templateResolver() {
-		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-		templateResolver.setPrefix("/WEB-INF");
-		templateResolver.setTemplateMode("HTML5");
-		return templateResolver;
-	}
-
-	@Bean
-	public ThymeleafTilesConfigurer tilesConfigurer() {
-		ThymeleafTilesConfigurer configurer = new ThymeleafTilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/views.xml");
-		return configurer;
+	public WebApplicationTemplateResolver templateResolver() {
+		IWebApplication application = JakartaServletWebApplication.buildApplication(this.servletContext);
+		WebApplicationTemplateResolver resolver = new WebApplicationTemplateResolver(application);
+		resolver.setPrefix("/WEB-INF/");
+		resolver.setSuffix(".html");
+		resolver.setTemplateMode("HTML5");
+		return resolver;
 	}
 
 }

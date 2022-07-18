@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:tiles="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org"
       lang="en">
 
@@ -41,7 +40,7 @@
 </head>
 
 
-<body class="tundra">
+<body class="tundra" th:fragment="body(bodyContent)">
 
 <div id="page" class="container">
 
@@ -77,16 +76,10 @@
                 </a>
             </p>
         </div>
-        <div id="main" class="span-18 last" tiles:include="body">
+        <div id="main" class="span-18 last" th:insert="${bodyContent}">
 
-          <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->      
-          <!-- At runtime, the body of this <div> will be substituted by -->
-          <!-- Tiles in order to create the final HTML page that will be -->
-          <!-- sent to the browser.                                      -->
-          <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->      
-          
           BODY PAGE GOES HERE!
-          
+
         </div>
     </div>
     

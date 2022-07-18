@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
-			<version>2.1.5.RELEASE</version>
+			<version>3.1.0.M1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
