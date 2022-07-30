@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<head th:replace="layouts/standard.html :: //head">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- This <head> section is only used for static prototyping purposes.             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <link rel="stylesheet" type="text/css" media="screen, projection" 
+          href="../../styles/blueprint/screen.css" />
+    
+    <link rel="stylesheet" type="text/css" media="print" 
+          href="../../styles/blueprint/print.css" />
+    
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" type="text/css" media="screen, projection"
+              href="../../styles/blueprint/ie.css" />
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/booking.css" />
+    
+</head>
+
+<body th:replace="layouts/standard.html :: body(~{::bodyContent})">
+
+<div th:fragment="bodyContent">
+
+<h1>Hotel Results</h1>
+
+<p>
+    <a id="changeSearchLink" href="#" 
+       th:href="@{hotels/search(searchString=${searchCriteria.searchString},pageSize=${searchCriteria.pageSize})}">Change Search</a>
+    <script type="text/javascript">
+        Spring.addDecoration(new Spring.AjaxEventDecoration({
+            elementId: "changeSearchLink",
+            event: "onclick",
+            popup: true,
+            params: {fragments: "#searchForm"}
+        }));
+    </script>
+</p>
+
+<div id="hotelResults">
+
+  <div th:if="${hotelList}">
+  
+    <table class="summary">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City, State</th>
+                <th>Zip</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="hotel : ${hotelList}">
+                <td th:text="${hotel.name}">The Herb Plaza</td>
+                <td th:text="${hotel.address}">Thyme Square, 13</td>
+                <td th:text="${hotel.city} + ', ' + ${hotel.state} + ', ' + ${hotel.country}">Icetown, North Pole, Earth</td>
+                <td th:text="${hotel.zip}">0W</td>
+                <td><a href="#" th:href="@{'hotels/' + ${hotel.id}}">View Hotel</a></td>
+            </tr>
+            <tr th:unless="${hotelList}">
+                <td colspan="5">No hotels found</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="buttonGroup">
+        <div class="span-3">
+            <div th:if="${searchCriteria.page > 0}">
+                <a id="prevResultsLink" href="#" 
+                   th:href="@{hotels(searchString=${searchCriteria.searchString},pageSize=${searchCriteria.pageSize},page=${searchCriteria.page - 1})}">Previous Results</a>
+                <script type="text/javascript">
+                    Spring.addDecoration(new Spring.AjaxEventDecoration({
+                        elementId: "prevResultsLink",
+                        event: "onclick",
+                        params: {fragments: "#hotelResults"}
+                    }));
+                </script>
+            </div>
+        </div>
+        <div class="span-3 append-12 last">
+            <div th:if="${hotelList} and ${hotelList.size() == searchCriteria.pageSize}">
+                <a id="moreResultsLink" href="#" 
+                   th:href="@{hotels(searchString=${searchCriteria.searchString},pageSize=${searchCriteria.pageSize},page=${searchCriteria.page + 1})}">More Results</a>
+                <script type="text/javascript">
+                    Spring.addDecoration(new Spring.AjaxEventDecoration({
+                        elementId: "moreResultsLink",
+                        event: "onclick",
+                        params: {fragments: "#hotelResults"}
+                    }));
+                </script>
+            </div>      
+        </div>
+    </div>
+  </div>
+
+</div>  
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<head th:replace="layouts/standard.html :: //head">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- This <head> section is only used for static prototyping purposes.             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="../../../styles/blueprint/screen.css" />
+
+    <link rel="stylesheet" type="text/css" media="print"
+          href="../../../styles/blueprint/print.css" />
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="../../../styles/blueprint/ie.css" />
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../styles/booking.css" />
+
+</head>
+
+<body th:replace="layouts/standard.html :: body(~{::#messages})">
+
+
+<div id="messages">
+    <ul th:if="${#fields.hasErrors('*')}" class="errors">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+    </ul>
+</div>
+
+
+</body>
+
+</html>

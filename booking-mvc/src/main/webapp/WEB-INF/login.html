@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<head th:replace="layouts/standard.html :: //head">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- This <head> section is only used for static prototyping purposes.             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="../styles/blueprint/screen.css" />
+
+    <link rel="stylesheet" type="text/css" media="print"
+          href="../styles/blueprint/print.css" />
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="../styles/blueprint/ie.css" />
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/booking.css" />
+
+</head>
+
+<body th:replace="layouts/standard.html :: body(~{::bodyContent})">
+
+<div th:fragment="bodyContent">
+
+<div class="span-5">
+    <p>Valid username/passwords are:</p>
+    <ul>
+        <li>keith/melbourne</li>
+        <li>erwin/leuven</li>
+        <li>jeremy/atlanta</li>
+        <li>scott/rochester</li>
+    </ul>
+</div>
+
+<div class="span-10 append-2 last" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="error" th:if="${param.login_error}">
+        Your login attempt was not successful, try again.<br /><br />
+    </div>
+    
+    <form name="f" action="#" th:action="@{/loginProcess}" method="post">
+    
+        <fieldset>
+        
+            <legend>Login Information</legend>
+            
+            <p>
+                <label for="username">User:</label>
+                <br />
+                <input type="text" name="username" id="username" />
+            </p>
+            
+            <script type="text/javascript">
+                // <![CDATA[
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "username",
+                        widgetType : "dijit.form.ValidationTextBox",
+                        widgetAttrs : { required : true }}));
+                // ]]>
+            </script>
+            
+            <p>
+                <label for="password">Password:</label>
+                <br />
+                <input type="password" name="password" id="password" />
+            </p>
+            
+            <script type="text/javascript">
+                // <![CDATA[
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "password",
+                        widgetType : "dijit.form.ValidationTextBox",
+                        widgetAttrs : { required : true}}));
+                // ]]>
+            </script>
+            
+            <p>
+                <input type="checkbox" name="_spring_security_remember_me" id="remember_me" />
+                <label for="remember_me">Don't ask for my password for two weeks:</label>
+            </p>
+            
+            <script type="text/javascript">
+                // <![CDATA[
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "remember_me",
+                        widgetType : "dijit.form.CheckBox"}));
+                // ]]>
+            </script>
+            
+            <p>
+                <button id="submit" type="submit">Login</button>
+                <script type="text/javascript">
+                    Spring.addDecoration(
+                            new Spring.ValidateAllDecoration({event : 'onclick', elementId : 'submit'}));
+                </script>
+            </p>
+            
+        </fieldset>
+        
+    </form>
+    
+</div>
+
+</div>
+
+</body>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- END of the content to be included in the execution result -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+</html>

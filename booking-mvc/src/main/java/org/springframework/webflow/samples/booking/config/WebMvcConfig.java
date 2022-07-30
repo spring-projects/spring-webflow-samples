@@ -1,27 +1,44 @@
 package org.springframework.webflow.samples.booking.config;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import jakarta.servlet.ServletContext;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.view.AjaxThymeleafViewResolver;
+import org.thymeleaf.spring6.view.FlowAjaxThymeleafView;
+import org.thymeleaf.templateresolver.WebApplicationTemplateResolver;
+import org.thymeleaf.web.IWebApplication;
+import org.thymeleaf.web.servlet.JakartaServletWebApplication;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
-import org.springframework.webflow.mvc.view.AjaxUrlBasedViewResolver;
-import org.springframework.webflow.mvc.view.FlowAjaxTiles3View;
 import org.springframework.webflow.samples.booking.BookingFlowHandler;
 
 @EnableWebMvc
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer {
+public class WebMvcConfig implements WebMvcConfigurer, ServletContextAware {
 
 	@Autowired
 	private WebFlowConfig webFlowConfig;
+
+	private ServletContext servletContext;
+
+	@Override
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -62,17 +79,33 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	}
 
 	@Bean
-	public AjaxUrlBasedViewResolver viewResolver() {
-		AjaxUrlBasedViewResolver resolver = new AjaxUrlBasedViewResolver();
-		resolver.setViewClass(FlowAjaxTiles3View.class);
-		return resolver;
+	public AjaxThymeleafViewResolver thymeleafViewResolver() {
+		AjaxThymeleafViewResolver viewResolver = new AjaxThymeleafViewResolver();
+		viewResolver.setViewClass(FlowAjaxThymeleafView.class);
+		viewResolver.setTemplateEngine(templateEngine());
+		return viewResolver;
 	}
 
 	@Bean
-	public TilesConfigurer tilesConfigurer() {
-		TilesConfigurer configurer = new TilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/views.xml");
-		return configurer;
+	public SpringTemplateEngine templateEngine(){
+
+		Set<IDialect> dialects = new LinkedHashSet<>();
+		dialects.add(new SpringSecurityDialect());
+
+		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+		templateEngine.setTemplateResolver(templateResolver());
+		templateEngine.setAdditionalDialects(dialects);
+		return templateEngine;
+	}
+
+	@Bean
+	public WebApplicationTemplateResolver templateResolver() {
+		IWebApplication application = JakartaServletWebApplication.buildApplication(this.servletContext);
+		WebApplicationTemplateResolver resolver = new WebApplicationTemplateResolver(application);
+		resolver.setPrefix("/WEB-INF/");
+		resolver.setSuffix(".html");
+		resolver.setTemplateMode("HTML5");
+		return resolver;
 	}
 
 }
