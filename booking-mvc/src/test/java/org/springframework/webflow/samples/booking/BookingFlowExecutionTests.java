@@ -41,7 +41,7 @@ public class BookingFlowExecutionTests extends AbstractXmlFlowExecutionTests {
 	startFlow(input, context);
 
 	assertCurrentStateEquals("enterBookingDetails");
-	assertResponseWrittenEquals("enterBookingDetails", context);
+	assertResponseWrittenEquals("/hotels/booking/enterBookingDetails.html", context);
 	assertTrue(getRequiredFlowAttribute("booking") instanceof Booking);
 
 	EasyMock.verify(bookingService);
@@ -56,7 +56,7 @@ public class BookingFlowExecutionTests extends AbstractXmlFlowExecutionTests {
 	resumeFlow(context);
 
 	assertCurrentStateEquals("reviewBooking");
-	assertResponseWrittenEquals("reviewBooking", context);
+	assertResponseWrittenEquals("/hotels/booking/reviewBooking.html", context);
     }
 
     public void testReviewBooking_Confirm() {
