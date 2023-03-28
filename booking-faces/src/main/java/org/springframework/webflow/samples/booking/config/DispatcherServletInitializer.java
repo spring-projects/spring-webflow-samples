@@ -1,8 +1,8 @@
 package org.springframework.webflow.samples.booking.config;
 
-import javax.servlet.Filter;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -34,13 +34,13 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
 		// Use JSF view templates saved as *.xhtml, for use with Facelets
-		servletContext.setInitParameter("javax.faces.DEFAULT_SUFFIX", ".xhtml");
+		servletContext.setInitParameter("jakarta.faces.DEFAULT_SUFFIX", ".xhtml");
 		// Enable special Facelets debug output during development
-		servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
+		servletContext.setInitParameter("jakarta.faces.PROJECT_STAGE", "Development");
 		// Causes Facelets to refresh templates during development
-		servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "1");
+		servletContext.setInitParameter("jakarta.faces.FACELETS_REFRESH_PERIOD", "1");
 		// Declare Spring Security Facelets tag library
-		servletContext.setInitParameter("javax.faces.FACELETS_LIBRARIES", "/WEB-INF/springsecurity.taglib.xml");
+		servletContext.setInitParameter("jakarta.faces.FACELETS_LIBRARIES", "/WEB-INF/springsecurity.taglib.xml");
 
 		// Comment out if not using Mojarra
 		servletContext.addListener(com.sun.faces.config.ConfigureListener.class);

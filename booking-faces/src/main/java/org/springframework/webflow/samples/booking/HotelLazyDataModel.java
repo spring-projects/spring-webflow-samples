@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.LazyDataModel;
+import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,21 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	}
 
 	@Override
-	public List<Hotel> load(int first, int pageSize, String sortField, SortOrder order, Map<String, FilterMeta> filterBy) {
+	public int count(Map<String, FilterMeta> filterBy) {
+		return bookingService.getNumberOfHotels(this.searchCriteria);
+	}
+
+	@Override
+	public List<Hotel> load(int first, int pageSize, Map<String, SortMeta> sortBy, Map<String, FilterMeta> filterBy) {
 		this.searchCriteria.setCurrentPage(first / pageSize + 1);
-		this.hotels = bookingService.findHotels(searchCriteria, first, sortField, order.equals(SortOrder.ASCENDING));
+		String sortField = null;
+		SortOrder sortOrder = SortOrder.ASCENDING;
+		if (!sortBy.isEmpty()) {
+			SortMeta sortMeta = sortBy.values().iterator().next();
+			sortField = sortMeta.getField();
+			sortOrder = sortMeta.getOrder();
+		}
+		this.hotels = bookingService.findHotels(searchCriteria, first, sortField, !sortOrder.equals(SortOrder.DESCENDING));
 		return hotels;
 	}
 
@@ -49,8 +62,8 @@ public class HotelLazyDataModel extends LazyDataModel<Hotel> {
 	}
 
 	@Override
-	public Object getRowKey(Hotel hotel) {
-		return hotel.getId();
+	public String getRowKey(Hotel hotel) {
+		return String.valueOf(hotel.getId());
 	}
 
 	@Override

@@ -10,8 +10,8 @@
 
 	<modules>
 		<module>booking-mvc</module>
-		<!--
 		<module>booking-faces</module>
+		<!--
 		<module>primefaces-showcase</module>
 		<module>webflow-showcase</module>
 		-->
@@ -19,20 +19,22 @@
 
 	<properties>
 		<easymock.version>3.4</easymock.version>
+		<cdi-api>4.0.1</cdi-api>
 		<hsqldb.version>2.5.1</hsqldb.version>
 		<hibernate.version>5.6.15.Final</hibernate.version>
 		<hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
 		<jaxb.version>2.2.3</jaxb.version>
 		<jetty-maven-plugin.version>11.0.11</jetty-maven-plugin.version>
-		<jsp-api.version>3.0.0</jsp-api.version>
-		<jstl-api>2.0.0</jstl-api>
+		<jsp-api.version>3.1.0</jsp-api.version>
+		<jstl-api>3.0.0</jstl-api>
 		<junit.version>4.13.2</junit.version>
 		<log4j.version>2.14.0</log4j.version>
-		<mojarra.version>2.2.20</mojarra.version>
-		<myfaces.version>2.3.8</myfaces.version>
-		<primefaces.version>8.0</primefaces.version>
+		<mojarra.version>4.0.2</mojarra.version>
+		<myfaces.version>4.0.0</myfaces.version>
+		<primefaces.version>11.0.0</primefaces.version>
 		<servlet.version>6.0.0</servlet.version>
 		<webflow.version>3.0.0-SNAPSHOT</webflow.version>
+		<weld.version>5.0.0.Final</weld.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
 

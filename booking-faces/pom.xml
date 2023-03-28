@@ -30,6 +30,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-binding</artifactId>
+			<version>${webflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${webflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
 			<version>${webflow.version}</version>
 		</dependency>
@@ -43,28 +53,18 @@
         </dependency>
 		<!-- Servlet -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- JSF implementation: Mojarra -->
 		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>${mojarra.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
+			<groupId>org.glassfish</groupId>
+			<artifactId>jakarta.faces</artifactId>
 			<version>${mojarra.version}</version>
 		</dependency>
 		<!-- JSF implementation: MyFaces (also change DispatcherServletInitializer)
-		<dependency>
-			<groupId>org.apache.myfaces.core</groupId>
-			<artifactId>myfaces-api</artifactId>
-			<version>${myfaces.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-impl</artifactId>
@@ -72,9 +72,22 @@
 		</dependency>
 		-->
 		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<scope>provided</scope>
+			<version>${cdi-api}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<scope>runtime</scope>
+			<version>${weld.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces.version}</version>
+			<classifier>jakarta</classifier>
 		</dependency>
 		<!-- Database, JPA -->
 		<dependency>
@@ -85,12 +98,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core-jakarta</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
@@ -157,8 +175,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>17</source>
+					<target>17</target>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -3,7 +3,7 @@ package org.springframework.webflow.samples.booking;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.model.DataModel;
+import jakarta.faces.model.DataModel;
 
 import org.easymock.EasyMock;
 import org.springframework.binding.mapping.Mapper;
