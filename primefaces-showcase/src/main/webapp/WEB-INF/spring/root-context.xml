@@ -5,5 +5,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="security-config.xml"/>
+	<import resource="servlet-context.xml"/>
 	
 </beans>

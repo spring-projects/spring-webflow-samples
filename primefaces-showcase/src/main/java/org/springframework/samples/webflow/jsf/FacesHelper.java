@@ -1,6 +1,6 @@
 package org.springframework.samples.webflow.jsf;
 
-import javax.faces.context.FacesContext;
+import jakarta.faces.context.FacesContext;
 
 import org.springframework.stereotype.Component;
 

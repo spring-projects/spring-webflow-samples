@@ -9,7 +9,10 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+			/WEB-INF/spring/root-context.xml,
+			/WEB-INF/spring/servlet-context.xml
+		</param-value>
 	</context-param>
 
 	<listener>
@@ -36,27 +39,28 @@
 
 	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
 	<context-param>
-		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-name>jakarta.faces.DEFAULT_SUFFIX</param-name>
 		<param-value>.xhtml</param-value>
 	</context-param>
 	
 	<!-- Enables special Facelets debug output during development -->
   	<context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
    		<param-value>Development</param-value>
   	</context-param>
   	
   	<!-- Causes Facelets to refresh templates during development -->
   	<context-param>
-  		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+  		<param-name>jakarta.faces.FACELETS_REFRESH_PERIOD</param-name>
   		<param-value>1</param-value>
   	</context-param>
 
 	<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config/>
 	</servlet>
 	
 	<!-- Just here so the JSF implementation can initialize -->
@@ -74,9 +78,10 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value/>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config/>
 	</servlet>
 		
 	<servlet-mapping>
@@ -86,28 +91,18 @@
 
 	<context-param>
 		<param-name>primefaces.UPLOADER</param-name>
-		<param-value>commons</param-value>
+		<param-value>native</param-value>
 	</context-param>
 
-	<filter>
-		<filter-name>PrimeFaces FileUpload Filter</filter-name>
-		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>PrimeFaces FileUpload Filter</filter-name>
-		<servlet-name>Spring MVC Servlet</servlet-name>
-	</filter-mapping>
+	<!--
+		Spring Security Facelets tag library declaration
+	-->
+	<context-param>
+		<param-name>jakarta.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+	</context-param>
 
-  	<!-- 
-  		Spring Security Facelets tag library declaration 
-  	-->
-  	<context-param>
-  		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-  		<param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
-  	</context-param>
-
-	<!-- 
+	<!--
 		DEFAULT PAGE
 	-->
 

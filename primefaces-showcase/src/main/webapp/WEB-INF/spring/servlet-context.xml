@@ -31,7 +31,7 @@
 
 	<!-- 
 		Enable processing of JSF 2 resource requests. For example:
-		/webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces
+		/webflow-primefaces-showcase/app/jakarta.faces.resource/jsf.js?ln=javax.faces
 	-->
 	<faces:resources />
 

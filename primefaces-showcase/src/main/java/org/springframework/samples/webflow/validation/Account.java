@@ -3,8 +3,8 @@ package org.springframework.samples.webflow.validation;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

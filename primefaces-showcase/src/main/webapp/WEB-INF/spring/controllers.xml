@@ -16,7 +16,10 @@
 	<mvc:view-controller path="/login" />
 
 	<mvc:view-controller path="/home" />
-	
+
+	<bean name="mvcHandlerMappingIntrospector"
+		  class="org.springframework.web.servlet.handler.HandlerMappingIntrospector"/>
+
 	<context:component-scan base-package="org.springframework.samples.webflow" />
 	 
 </beans>

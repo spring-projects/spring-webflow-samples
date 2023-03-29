@@ -11,8 +11,8 @@
 	<modules>
 		<module>booking-mvc</module>
 		<module>booking-faces</module>
-		<!--
 		<module>primefaces-showcase</module>
+		<!--
 		<module>webflow-showcase</module>
 		-->
 	</modules>
