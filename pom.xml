@@ -33,7 +33,7 @@
 		<myfaces.version>4.0.0</myfaces.version>
 		<primefaces.version>11.0.0</primefaces.version>
 		<servlet.version>6.0.0</servlet.version>
-		<webflow.version>3.0.0-SNAPSHOT</webflow.version>
+		<webflow.version>3.0.0</webflow.version>
 		<weld.version>5.0.0.Final</weld.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
@@ -43,7 +43,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>6.0.7</version>
+				<version>6.0.10</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
