@@ -78,6 +78,11 @@
 			<version>${cdi-api}</version>
 		</dependency>
 		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-el-api</artifactId>
+			<version>${cdi-api}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-shaded</artifactId>
 			<scope>runtime</scope>
@@ -114,10 +119,15 @@
 		</dependency>
 		<!-- JAXB2 -->
         <dependency>
-          <groupId>javax.xml.bind</groupId>
-          <artifactId>jaxb-api</artifactId>
+          <groupId>com.sun.xml.bind</groupId>
+          <artifactId>jaxb-core</artifactId>
           <version>${jaxb.version}</version>
         </dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -177,6 +187,7 @@
 				<configuration>
 					<source>17</source>
 					<target>17</target>
+					<parameters>true</parameters>
 				</configuration>
 			</plugin>
 			<plugin>
