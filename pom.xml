@@ -28,7 +28,7 @@
 		<jsp-api.version>3.1.0</jsp-api.version>
 		<jstl-api>3.0.0</jstl-api>
 		<junit.version>4.13.2</junit.version>
-		<log4j.version>2.14.0</log4j.version>
+		<log4j.version>2.17.1</log4j.version>
 		<mojarra.version>4.0.2</mojarra.version>
 		<myfaces.version>4.0.0</myfaces.version>
 		<primefaces.version>11.0.0</primefaces.version>
