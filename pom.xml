@@ -18,22 +18,22 @@
 	</modules>
 
 	<properties>
-		<easymock.version>3.4</easymock.version>
+		<easymock.version>5.6.0</easymock.version>
 		<cdi-api>4.1.0</cdi-api>
 		<hsqldb.version>2.7.4</hsqldb.version>
-		<hibernate.version>5.6.15.Final</hibernate.version>
-		<hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
+		<hibernate.version>7.2.0.CR1</hibernate.version>
+		<hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
 		<jaxb.version>3.0.2</jaxb.version>
-		<jetty-maven-plugin.version>11.0.24</jetty-maven-plugin.version>
-		<jsp-api.version>3.1.0</jsp-api.version>
-		<jstl-api>3.0.0</jstl-api>
+		<jetty-maven-plugin.version>11.0.26</jetty-maven-plugin.version>
+		<jsp-api.version>4.0.0</jsp-api.version>
+		<jstl-api>3.0.2</jstl-api>
 		<junit.version>4.13.2</junit.version>
-		<log4j.version>2.14.0</log4j.version>
+		<log4j.version>2.25.2</log4j.version>
 		<mojarra.version>4.0.2</mojarra.version>
 		<myfaces.version>4.0.0</myfaces.version>
 		<primefaces.version>11.0.0</primefaces.version>
-		<servlet.version>6.0.0</servlet.version>
-		<webflow.version>3.0.1-SNAPSHOT</webflow.version>
+		<servlet.version>6.1.0</servlet.version>
+		<webflow.version>4.0.0-SNAPSHOT</webflow.version>
 		<weld.version>5.0.0.Final</weld.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
@@ -43,7 +43,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>6.2.0</version>
+				<version>7.0.0-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -52,12 +52,12 @@
 				<artifactId>spring-security-bom</artifactId>
 				<type>pom</type>
 				<scope>import</scope>
-				<version>6.4.0</version>
+				<version>7.0.0-RC2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>2.0.6</version>
+				<version>2.0.17</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
