@@ -15,20 +15,18 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http
-			.formLogin()
-				.loginPage("/spring/login")
-				.loginProcessingUrl("/spring/loginProcess")
-				.defaultSuccessUrl("/spring/main")
-				.failureUrl("/spring/login?login_error=1")
-				.and()
-			.logout()
-				.logoutUrl("/spring/logout")
-				.logoutSuccessUrl("/spring/logoutSuccess")
-				.and()
-			.requestCache()
-				.requestCache(new HttpSessionRequestCache());
-		return http.build();
+		return http
+				.formLogin(configurer -> configurer
+						.loginPage("/spring/login")
+						.loginProcessingUrl("/spring/loginProcess")
+						.defaultSuccessUrl("/spring/main")
+						.failureUrl("/spring/login?login_error=1"))
+				.logout(configurer -> configurer
+						.logoutUrl("/spring/logout")
+						.logoutSuccessUrl("/spring/logoutSuccess"))
+				.requestCache(configurer -> configurer
+						.requestCache(new HttpSessionRequestCache()))
+				.build();
 	}
 
 	@Bean

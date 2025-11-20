@@ -76,6 +76,12 @@
 			<version>${cdi-api}</version>
 		</dependency>
 		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-el-api</artifactId>
+			<scope>provided</scope>
+			<version>${cdi-api}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-shaded</artifactId>
 			<scope>runtime</scope>

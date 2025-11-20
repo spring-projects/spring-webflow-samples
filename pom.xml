@@ -19,7 +19,7 @@
 
 	<properties>
 		<easymock.version>5.6.0</easymock.version>
-		<cdi-api>4.1.0</cdi-api>
+		<cdi-api>5.0.0-M1</cdi-api>
 		<hsqldb.version>2.7.4</hsqldb.version>
 		<hibernate.version>7.2.0.CR1</hibernate.version>
 		<hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
@@ -29,12 +29,12 @@
 		<jstl-api>3.0.2</jstl-api>
 		<junit.version>4.13.2</junit.version>
 		<log4j.version>2.25.2</log4j.version>
-		<mojarra.version>4.0.2</mojarra.version>
-		<myfaces.version>4.0.0</myfaces.version>
-		<primefaces.version>11.0.0</primefaces.version>
+		<mojarra.version>4.1.4</mojarra.version>
+		<myfaces.version>4.1.2</myfaces.version>
+		<primefaces.version>15.0.10</primefaces.version>
 		<servlet.version>6.1.0</servlet.version>
 		<webflow.version>4.0.0-SNAPSHOT</webflow.version>
-		<weld.version>5.0.0.Final</weld.version>
+		<weld.version>6.0.3.Final</weld.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 	</properties>
 
