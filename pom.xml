@@ -19,7 +19,7 @@
 
 	<properties>
 		<easymock.version>5.6.0</easymock.version>
-		<cdi-api>5.0.0-M1</cdi-api>
+		<cdi-api>4.1.0</cdi-api>
 		<hsqldb.version>2.7.4</hsqldb.version>
 		<hibernate.version>7.2.0.CR1</hibernate.version>
 		<hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
