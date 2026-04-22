@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import jakarta.persistence.EntityManagerFactory;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass=true)
+@ComponentScan(basePackages="org.springframework.webflow.samples.booking")
 public class DataAccessConfig {
 
 	@Bean
